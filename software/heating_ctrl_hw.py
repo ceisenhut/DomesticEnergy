@@ -1,4 +1,4 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 
 import os
 import spidev
@@ -61,9 +61,9 @@ class CtrlHardware():
 
 
 	
-hw = CtrlHardware()
+#hw = CtrlHardware()
 
-hw.initOutputs()
-#hw.changeOutput(pin=0, state=1)
-#hw.changeOutput(pin=1, state=1)
+#hw.initOutputs()
+#hw.changeOutput(pin=6, state=1)
+#hw.changeOutput(pin=5, state=1)
 #hw.setOutput(0x80)
