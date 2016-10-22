@@ -26,7 +26,7 @@ class CtrlHardware():
 		if sensor_id >= 0 and sensor_id < 8:
 			#set output-latch of GPB3 low
 			mux_byte = format(sensor_id, '#04x')
-			os.system('i2cset -y 1 0x24 0x15 '+mux_byte)
+			os.system('i2cset -y 1 0x20 0x15 '+mux_byte)
 		#set pins 0..3 of register B as output
 		os.system('i2cset -y 1 0x20 0x01 0xF0')
 		time.sleep (0.2)
