@@ -8,65 +8,64 @@ hw = hardware.CtrlHardware()
 emon = emoncms.EnergyMonitor()
 
 # hardware allocation:
-def runSolarPump ():
-    hw.changeOutput(pin=0, state=1)
+def runChargePump ():
+    hw.changeOutput(pin=6, state=1)
 
-def stopSolarPump ():
+def stopChargePump ():
+    hw.changeOutput(pin=6, state=0)
+
+def setValves4Idle ():
     hw.changeOutput(pin=0, state=0)
-
-def runHeatingPump ():
     hw.changeOutput(pin=1, state=1)
-
-def stopHeatingPump ():
-    hw.changeOutput(pin=1, state=0)
-
-def increaseHeatingTemp ():
     hw.changeOutput(pin=2, state=0)
     hw.changeOutput(pin=3, state=1)
-
-def decreaseHeatingTemp ():
-    hw.changeOutput(pin=2, state=1)
-    hw.changeOutput(pin=3, state=0)
-
-def freezeHeatingTemp ():
-    hw.changeOutput(pin=2, state=0)
-    hw.changeOutput(pin=3, state=0)
-
-def changeToFullSolarHeatExchange ():
-    hw.changeOutput(pin=4, state=0)
+    hw.changeOutput(pin=4, state=1)
     hw.changeOutput(pin=5, state=1)
 
-def changeToLowSolarHeatExchange ():
+def setValves4Charging ():
+    hw.changeOutput(pin=0, state=1)
+    hw.changeOutput(pin=1, state=1)
+    hw.changeOutput(pin=2, state=0)
+    hw.changeOutput(pin=3, state=1)
     hw.changeOutput(pin=4, state=1)
-    hw.changeOutput(pin=5, state=0)
+    hw.changeOutput(pin=5, state=1)
 
-def freezeSolarHeatExchange ():
+def setValves4Discharging ():
+    hw.changeOutput(pin=0, state=0)
+    hw.changeOutput(pin=1, state=1)
+    hw.changeOutput(pin=2, state=0)
+    hw.changeOutput(pin=3, state=1)
     hw.changeOutput(pin=4, state=0)
-    hw.changeOutput(pin=5, state=0)
+    hw.changeOutput(pin=5, state=1)
 
 #========================================
 
 
 SampleTime = 3
-
 PostDataTime = 30
 
-#state-indicators for solar-control:
-SolarPumpRunning = False
-SwitchOnTime = 0
 
-#state-indicators for heating-control:
-HeatingPumpRunning = False
-HeatControlSampleTime = 300
-HeatingState = 0     # heating off
-DecreaseTempTime = 200
-IncreaseTempTime = 0
-ControlSampleTime = HeatControlSampleTime
-ControlError = 0
+#states for charge-control
+State_SetValves4Idle = 0
+State_Idle = 1
+State_SetValves4Charging = 2
+State_Charging = 3
+State_ChargingIdle = 4
+State_SetValves4Discharging = 5
+State_Discharging = 6
+State_DischargingIdle = 7
 
+Charging_State = State_SetValves4Idle
+StateCtrlTimeout = 30
+ChargeIntegral = 0
+
+T3_entry = 0
+T2_entry = 0
 
 #========================================
 hw.initOutputs()
+setValves4Idle()
+
 
 while True:
     T1 = hw.readTemp(0)
@@ -89,94 +88,76 @@ while True:
 
     StorageMeanTempLog = "StorageMeanTemp:%2.1f" % (StorageMeanTemp)
 
+    Charging_State_Log = "ChargingState:%2.1f" % (Charging_State)
+
     PostDataTime -= SampleTime
     if (PostDataTime<=0):
         PostDataTime = 30
         emon.postData(TempLog, 1)
         emon.postData(StorageMeanTempLog, 1)
-    # postDataRemoteServer(TempLog,27)
+        emon.postData(Charging_State_Log, 1)
 
     # ========================================
-    # solar-control:
+    # charging-control:
     # ========================================
+    if (StateCtrlTimeout <= 0):
+        if (Charging_State == State_SetValves4Idle):
+            Charging_State = State_Idle
+            ChargeIntegral = 0
+            hw.initOutputs()
+            StateCtrlTimeout = 30
+        elif (Charging_State == State_Idle):
+            if (T2 > 65):
+                Charging_State = State_SetValves4Charging
+                setValves4Charging()
+            StateCtrlTimeout = 45
+        elif (Charging_State == State_SetValves4Charging):
+            Charging_State = State_Charging
+            hw.initOutputs()
+            runChargePump()
+            StateCtrlTimeout = 30
+        elif (Charging_State == State_Charging):
+            if (T2 < 60):
+                Charging_State = State_ChargingIdle
+                stopChargePump()
+            StateCtrlTimeout = 30
+        elif (Charging_State == State_ChargingIdle):
+            if (T2 > 65):
+                Charging_State = State_Charging
+                runChargePump()
+            if (T2 < 45):
+                Charging_State = State_SetValves4Discharging
+                setValves4Discharging()
+            StateCtrlTimeout = 45
+        elif (Charging_State == State_SetValves4Discharging):
+            Charging_State = State_Discharging
+            hw.initOutputs()
+            runChargePump()
+            StateCtrlTimeout = 60
+            T3_entry = T3
+        elif (Charging_State == State_Discharging):
+            if ((T3>(T3_entry+2)) or (T7 < (T2+2))):
+                Charging_State = State_DischargingIdle
+                stopChargePump()
+                T2_entry = T2
+            StateCtrlTimeout = 60
+        elif (Charging_State == State_DischargingIdle):
+            if (T2<(T2_entry -5)):
+                Charging_State = State_Discharging
+                runChargePump()
+                T3_entry = T3
+            if (T2 < 22):
+                Charging_State = State_SetValves4Idle
+                setValves4Idle()
+            StateCtrlTimeout = 60
+        else:
+            hw.initOutputs()
+            setValves4Idle()
+            Charging_State = State_Idle
+            StateCtrlTimeout = 45
 
-    # if (StorageMeanTemp > 80):  # activ cooling
-    #     SolarPumpRunning = True
-    #     runSolarPump()
-    #     SwitchOnTime = 0
-    #     #print("solar-pump running (cooling/heating)")
-    # else:
-    #     if SolarPumpRunning:
-    #         SwitchOnTime += SampleTime
-    #         if (T9 > T8) and (SwitchOnTime > 300):
-    #             SolarPumpRunning = False
-    #             stopSolarPump()
-    #             SwitchOnTime = 0
-    #     elif (T7 > (T6 + 4)):
-    #         SolarPumpRunning = True
-    #         runSolarPump()
+    StateCtrlTimeout -= SampleTime
 
-    #if (SolarPumpRunning):
-        #print("solar-pump running")
-    #else:
-        #print("solar-pump idle")
-    # ========================================
-    # heating-control:
-    # ========================================
-
-    # HeatTempSetpoint = emon.readHeatingTempSetpoint()
-    #
-    # if (HeatingState == 0):  #heating off: setpoint = 0, temperature-mixer to lowest position
-    #     HeatingPumpRunning = False
-    #     if (DecreaseTempTime == 0):
-    #         HeatingState = 1
-    # elif (HeatingState == 1):  #heating idle: heating-system off, waiting for setpoint > 0
-    #     HeatingPumpRunning = False
-    #     if (HeatTempSetpoint > 0):
-    #         HeatingState = 2
-    #         ControlSampleTime = 0  # start control immediately
-    # elif (HeatingState == 2): #heating-control: setpoint > 0, pump running, closed-loop temperature control
-    #     HeatingPumpRunning = True
-    #     ControlSampleTime -= SampleTime
-    #     if (ControlSampleTime <= 0):
-    #         ControlSampleTime = HeatControlSampleTime
-    #         ControlError = HeatTempSetpoint - T10
-    #         if (ControlError > 3):
-    #             IncreaseTempTime = ControlError/3
-    #         elif (ControlError < 3):
-    #             DecreaseTempTime = -ControlError/2
-    #     if (HeatTempSetpoint == 0):
-    #         HeatingState = 0
-    #         DecreaseTempTime = 200
-    # else:
-    #     HeatingPumpRunning = False
-    #     DecreaseTempTime = 200
-    #     HeatingState = 0
-    #
-    #
-    # if (HeatingPumpRunning):
-    #     runHeatingPump()
-    # else:
-    #     stopHeatingPump()
-    #
-    # if (DecreaseTempTime > 0):
-    #     DecreaseTempTime -= SampleTime
-    #     decreaseHeatingTemp()
-    #     IncreaseTempTime = 0
-    # elif (IncreaseTempTime > 0):
-    #     IncreaseTempTime -= SampleTime
-    #     increaseHeatingTemp()
-    #     DecreaseTempTime = 0
-    # else:
-    #     freezeHeatingTemp()
-    #     DecreaseTempTime = 0
-    #     IncreaseTempTime = 0
-
-    #print ("HeatingState = ", HeatingState)
-    #print ("DecreaseTempTime = ", DecreaseTempTime)
-    #print ("IncreaseTempTime = ", IncreaseTempTime)
-    #print ("HeatControlError = ", ControlError)
-    #print ("ControlSampleTime = ", ControlSampleTime)
     # ========================================
     if ((SampleTime-ReadTime)>0):
         time.sleep(SampleTime-ReadTime)   # TODO: split sampling and reading
