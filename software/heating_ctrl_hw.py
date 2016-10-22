@@ -36,14 +36,14 @@ class CtrlHardware():
 		return Temp
 
 	def initOutputs (self):
-		self._output = 0xff
-		os.system('i2cset -y 1 0x20 0x15 0x00')
-		os.system('i2cset -y 1 0x20 0x01 0x00')
+		self._output = 0x00
+		os.system('i2cset -y 1 0x20 0x14 0x00')
+		os.system('i2cset -y 1 0x20 0x00 0x00')
 
 	def setOutput (self, output):
 		self._output = (~output + 256)
-		os.system('i2cset -y 1 0x20 0x15 ' + format(self._output, '#04x'))
-		os.system('i2cset -y 1 0x20 0x01 0x00')
+		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
+		os.system('i2cset -y 1 0x20 0x00 0x00')
 
 	def changeOutput (self, pin=0, state=0):
 		"""
@@ -52,12 +52,18 @@ class CtrlHardware():
 		state=0: output inactiv
 		state=1: output activ
 		"""
-		if (state == 0):
+		if (state == 1):
 			self._output = self._output | (2**pin)
 		else:
 			self._output = self._output & ((~(2**pin))+ 256)
-		os.system('i2cset -y 1 0x20 0x15 ' + format(self._output, '#04x'))
-		os.system('i2cset -y 1 0x20 0x01 0x00')
+		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
+		os.system('i2cset -y 1 0x20 0x00 0x00')
 
 
 	
+hw = CtrlHardware()
+
+hw.initOutputs()
+#hw.changeOutput(pin=0, state=1)
+#hw.changeOutput(pin=1, state=1)
+#hw.setOutput(0x80)
