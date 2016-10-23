@@ -4,6 +4,7 @@ import heating_ctrl_hw as hardware
 import rw_emoncms as emoncms
 import time
 
+
 hw = hardware.CtrlHardware()
 emon = emoncms.EnergyMonitor()
 
@@ -40,10 +41,8 @@ def setValves4Discharging ():
 
 #========================================
 
-
 SampleTime = 3
 PostDataTime = 30
-
 
 #states for charge-control
 State_SetValves4Idle = 0
@@ -65,7 +64,8 @@ T2_entry = 0
 #========================================
 hw.initOutputs()
 setValves4Idle()
-
+time.sleep(45)
+hw.initOutputs()
 
 while True:
     T1 = hw.readTemp(0)
@@ -140,6 +140,9 @@ while True:
                 Charging_State = State_DischargingIdle
                 stopChargePump()
                 T2_entry = T2
+            if (T2 > 65):
+                Charging_State = State_SetValves4Charging
+                setValves4Charging()
             StateCtrlTimeout = 60
         elif (Charging_State == State_DischargingIdle):
             if (T2<(T2_entry -5)):
@@ -149,6 +152,9 @@ while True:
             if (T2 < 22):
                 Charging_State = State_SetValves4Idle
                 setValves4Idle()
+            if (T2 > 65):
+                Charging_State = State_SetValves4Charging
+                setValves4Charging()
             StateCtrlTimeout = 60
         else:
             hw.initOutputs()
