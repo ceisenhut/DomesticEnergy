@@ -96,6 +96,8 @@ while True:
         emon.postData(TempLog, 1)
         emon.postData(StorageMeanTempLog, 1)
         emon.postData(Charging_State_Log, 1)
+        emon.postData(TempLog, 15)
+        emon.postData(Charging_State_Log, 15)
 
     # ========================================
     # charging-control:
