@@ -96,8 +96,11 @@ while True:
         emon.postData(TempLog, 1)
         emon.postData(StorageMeanTempLog, 1)
         emon.postData(Charging_State_Log, 1)
-        emon.postData(TempLog, 15)
-        emon.postData(Charging_State_Log, 15)
+        try:
+            emon.postDataRemoteServer(TempLog, 1)
+            emon.postDataRemoteServer(Charging_State_Log, 1)
+        except:
+            print("remote-server not accessible")
 
     # ========================================
     # charging-control:

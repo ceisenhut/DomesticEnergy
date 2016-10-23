@@ -29,7 +29,7 @@ class EnergyMonitor():
 			return 0.0
 
 	def postDataRemoteServer (self, data, node):
-		url = 'xxxxxxxxxxxxxxx/emoncms/input/post.json?node='+str(1)+'&json={'+data+'}&apikey=xxxxxxxxxxxxxx'
+		url = 'http://www.solardorf-rehetobel.ch/emoncms/input/post.json?node='+str(node)+'&json={'+data+'}&apikey=a711f4f1fe41de54cb3ecd9aacaa18af'
 		answer = urlopen(url)
 		#print(answer)
 
