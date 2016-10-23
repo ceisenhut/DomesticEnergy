@@ -13,7 +13,7 @@ except:
 class EnergyMonitor():
 	def postData (self, data, node):
 		rw_apikey = config['local_emon']['rw_apikey']
-		url = 'http://localhost/emoncms/input/post.json?node='+str(1)+'&json={'+data+'}&apikey='+rw_apikey
+		url = 'http://localhost/emoncms/input/post.json?node='+str(node)+'&json={'+data+'}&apikey='+rw_apikey
 		answer = urlopen(url)
 		#print(answer)
 
