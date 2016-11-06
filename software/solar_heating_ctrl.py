@@ -148,7 +148,7 @@ while True:
             if (T2 > 65):
                 Charging_State = State_SetValves4Charging
                 setValves4Charging()
-			if (T2 < 23):
+            if (T2 < 23):
                 Charging_State = State_SetValves4Idle
                 setValves4Idle()
             StateCtrlTimeout = 60
