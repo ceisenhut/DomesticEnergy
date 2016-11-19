@@ -17,9 +17,20 @@ class EnergyMonitor():
 		answer = urlopen(url)
 		#print(answer)
 
-	def readHeatingTempSetpoint (self):
+	def readTopStorageTemp (self):
 		rw_apikey = config['local_emon']['rw_apikey']
-		url = 'http://localhost/emoncms/feed/value.json?id=14&apikey=' + rw_apikey
+		url = 'http://localhost/emoncms/feed/value.json?id=15&apikey=' + rw_apikey
+		try:
+			sock = urlopen(url)
+			data_str = sock.read()
+			sock.close
+			return float((data_str.decode("utf-8")).replace('"', ''))
+		except:
+			return 0.0
+
+	def readTotalElectricalPower (self):
+		rw_apikey = config['local_emon']['rw_apikey']
+		url = 'http://localhost/emoncms/feed/value.json?id=29&apikey=' + rw_apikey
 		try:
 			sock = urlopen(url)
 			data_str = sock.read()
