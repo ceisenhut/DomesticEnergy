@@ -6,10 +6,25 @@ import os
 
 emon = emoncms.EnergyMonitor()
 
-StorageTemp = emon.readTopStorageTemp()
-ElectricalPower = emon.readTotalElectricalPower()
+WatchdogChecks = 10
+OldStorageTemp = 0
+OldElectricalPower = 0
 
-print(StorageTemp)
-print(ElectricalPower)
+while (WatchdogChecks > 0):
+	try:
+		StorageTemp = emon.readTopStorageTemp()
+		ElectricalPower = emon.readTotalElectricalPower()
+	except:
+		StorageTemp = 0
+		ElectricalPower = 0
 
-os.system('sudo reboot now')
+	if (StorageTemp != OldStorageTemp) && (ElectricalPower != OldElectricalPower)):
+		WatchdogChecks = -1
+	else:
+		WatchdogChecks = WatchdogChecks -1
+		OldStorageTemp = StorageTemp
+		OldElectricalPower = ElectricalPower
+	time.sleep(100)
+
+if (WatchdogChecks == -1):
+	os.system('sudo reboot now')
