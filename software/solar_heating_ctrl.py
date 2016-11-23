@@ -122,10 +122,14 @@ while True:
             runChargePump()
             StateCtrlTimeout = 30
         elif (Charging_State == State_Charging):
+            StateCtrlTimeout = 30
             if (T2 < 60):
                 Charging_State = State_ChargingIdle
                 stopChargePump()
-            StateCtrlTimeout = 30
+            if (T2 > 75):  # if T2 exceeds 75 degrees, valves may not be set correctly for charging
+                Charging_State = State_SetValves4Charging
+                setValves4Charging()
+                StateCtrlTimeout = 45
         elif (Charging_State == State_ChargingIdle):
             if (T2 > 65):
                 Charging_State = State_Charging
@@ -133,6 +137,9 @@ while True:
             if (T2 < 45):
                 Charging_State = State_SetValves4Discharging
                 setValves4Discharging()
+            if (T2 > 75):  # if T2 exceeds 75 degrees, valves may not be set correctly for charging
+                Charging_State = State_SetValves4Charging
+                setValves4Charging()
             StateCtrlTimeout = 45
         elif (Charging_State == State_SetValves4Discharging):
             Charging_State = State_Discharging
