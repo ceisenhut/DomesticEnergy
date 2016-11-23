@@ -3,6 +3,7 @@
 import os
 import spidev
 import time
+import gpio
 
 #import configparser
 
@@ -59,6 +60,13 @@ class CtrlHardware():
 		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
 		os.system('i2cset -y 1 0x20 0x00 0x00')
 
+	def initPWM (pin):
+		gpio.setup(pin, gpio.OUT)
+
+	def setPWM (pin, freq, duty):
+		pwm = gpio.PWM(pin, freq)
+		pwm.start(duty)
+
 
 	
 #hw = CtrlHardware()
@@ -67,3 +75,6 @@ class CtrlHardware():
 #hw.changeOutput(pin=6, state=1)
 #hw.changeOutput(pin=5, state=1)
 #hw.setOutput(0x80)
+
+#hw.initPWM(36)
+#hw.setPWM(36, 1000, 50)
