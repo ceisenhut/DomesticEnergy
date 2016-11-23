@@ -18,13 +18,13 @@ while (WatchdogChecks > 0):
 		StorageTemp = 0
 		ElectricalPower = 0
 
-	if (StorageTemp != OldStorageTemp) && (ElectricalPower != OldElectricalPower)):
+	if ((StorageTemp != OldStorageTemp) and (ElectricalPower != OldElectricalPower)):
 		WatchdogChecks = -1
 	else:
 		WatchdogChecks = WatchdogChecks -1
 		OldStorageTemp = StorageTemp
 		OldElectricalPower = ElectricalPower
-	time.sleep(100)
+	time.sleep(200)
 
-if (WatchdogChecks == -1):
+if (WatchdogChecks == 0):
 	os.system('sudo reboot now')
