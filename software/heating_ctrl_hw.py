@@ -3,7 +3,7 @@
 import os
 import spidev
 import time
-import gpio
+import RPi.GPIO as gpio
 
 #import configparser
 
