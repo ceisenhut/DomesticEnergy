@@ -61,11 +61,16 @@ ChargeIntegral = 0
 T3_entry = 0
 T2_entry = 0
 
+PWM_PinElectricHeating = 36
+PWM_Frequency = 1000
+ActualDutyCycle = 0
+
 #========================================
 hw.initOutputs()
 setValves4Idle()
 time.sleep(45)
 hw.initOutputs()
+#hw.initPWM(PWM_PinElectricHeating)
 
 while True:
     T1 = hw.readTemp(0)
@@ -90,17 +95,35 @@ while True:
 
     Charging_State_Log = "ChargingState:%2.1f" % (Charging_State)
 
+    ElectricalHeatingDutyCycleLog = "HeatingDutyCycle:%2.1f" % (ActualDutyCycle)
+
     PostDataTime -= SampleTime
     if (PostDataTime<=0):
         PostDataTime = 30
         emon.postData(TempLog, 1)
         emon.postData(StorageMeanTempLog, 1)
         emon.postData(Charging_State_Log, 1)
+        emon.postData(ElectricalHeatingDutyCycleLog, 1)
         try:
             emon.postDataRemoteServer(TempLog, 1)
             emon.postDataRemoteServer(Charging_State_Log, 1)
         except:
             print("remote-server not accessible")
+
+        # ===========================================
+        # Control of electrical heating
+        ActualGridPower = emon.readTotalElectricalPower()
+        ActualDutyCycle = ActualDutyCycle - (ActualGridPower / 50)
+
+        if (ActualDutyCycle > 100):
+            ActualDutyCycle = 100
+        elif (ActualDutyCycle < 0):
+            ActualDutyCycle = 0
+
+        if (T1 > 85):
+            ActualDutyCycle = 0
+
+        # hw.setPWM(PWM_PinElectricHeating, PWM_Frequency, ActualDutyCycle)
 
     # ========================================
     # charging-control:
@@ -178,6 +201,7 @@ while True:
             StateCtrlTimeout = 45
 
     StateCtrlTimeout -= SampleTime
+
 
     # ========================================
     if ((SampleTime-ReadTime)>0):
