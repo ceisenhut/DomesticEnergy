@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 import sys
-#from heating_ctrl_hw import *
+from heating_ctrl_hw import *
 
-#hw = CtrlHardware()
+hw = CtrlHardware()
 
 try:
     DutyCycle = (int) (sys.argv[1])
@@ -22,6 +22,6 @@ else:
 #hw.changeOutput(pin=5, state=1)
 #hw.setOutput(0x80)
 
-#hw.initPWM(36)
-#hw.setPWM(36, 1000, DutyCycle)
+hw.initPWM(36)
+hw.setPWM(36, 1000, DutyCycle)
 
