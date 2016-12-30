@@ -98,12 +98,24 @@ while True:
     ElectricalHeatingDutyCycleLog = "HeatingDutyCycle:%2.1f" % (ActualDutyCycle)
 
     PostDataTime -= SampleTime
+
+    try:
+        LoggedChargingState = emon.readChargingState()
+    except:
+        LoggedChargingState = Charging_State
+
+    if (LoggedChargingState != Charging_State):
+        Charging_State = LoggedChargingState
+
     if (PostDataTime<=0):
         PostDataTime = 30
-        emon.postData(TempLog, 1)
-        emon.postData(StorageMeanTempLog, 1)
-        emon.postData(Charging_State_Log, 1)
-        emon.postData(ElectricalHeatingDutyCycleLog, 1)
+        try:
+            emon.postData(TempLog, 1)
+            emon.postData(StorageMeanTempLog, 1)
+            emon.postData(Charging_State_Log, 1)
+            emon.postData(ElectricalHeatingDutyCycleLog, 1)
+        except:
+            print("local-server not accessible")
         try:
             emon.postDataRemoteServer(TempLog, 1)
             emon.postDataRemoteServer(Charging_State_Log, 1)
