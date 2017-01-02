@@ -99,13 +99,6 @@ while True:
 
     PostDataTime -= SampleTime
 
-    try:
-        LoggedChargingState = emon.readChargingState()
-    except:
-        LoggedChargingState = Charging_State
-
-    if (LoggedChargingState != Charging_State):
-        Charging_State = LoggedChargingState
 
     if (PostDataTime<=0):
         PostDataTime = 30
