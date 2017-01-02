@@ -68,6 +68,9 @@ class CtrlHardware():
 		pwm = gpio.PWM(pin, freq)
 		pwm.start(duty)
 
+	def cleanupGPIO (self):
+		gpio.cleanup()
+
 
 	
 #hw = CtrlHardware()
