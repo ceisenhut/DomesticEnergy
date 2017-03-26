@@ -72,6 +72,9 @@ class CtrlHardware():
 	def stopPWM (self, PWM):
 		PWM.stop()
 
+	def cleanupGPIO (self):
+		gpio.cleanup()
+
 
 	
 #hw = CtrlHardware()
