@@ -60,13 +60,17 @@ class CtrlHardware():
 		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
 		os.system('i2cset -y 1 0x20 0x00 0x00')
 
-	def initPWM (self, pin):
+	def initPWM (self, pin, freq):
 		gpio.setmode(gpio.BOARD)
 		gpio.setup(pin, gpio.OUT)
-
-	def setPWM (self, pin, freq, duty):
 		pwm = gpio.PWM(pin, freq)
-		pwm.start(duty)
+		return pwm
+
+	def setPWM (self, PWM, duty):
+		PWM.start(duty)
+
+	def stopPWM (self, PWM):
+		PWM.stop()
 
 
 	
