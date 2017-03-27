@@ -65,6 +65,8 @@ PWM_PinElectricHeating = 36
 PWM_Frequency = 1000
 ActualDutyCycle = 0
 
+Setpoint_ChargingState = 0
+
 #========================================
 hw.initOutputs()
 setValves4Idle()
@@ -129,6 +131,12 @@ while True:
             ActualDutyCycle = 0
 
         # hw.setPWM(PWM_PinElectricHeating, PWM_Frequency, ActualDutyCycle)
+
+
+        NewChargingStateSetpoint = emon.readChargingStateSetpoint()
+        if (Setpoint_ChargingState != NewChargingStateSetpoint) and (NewChargingStateSetpoint != -1):
+            Setpoint_ChargingState = NewChargingStateSetpoint
+            Charging_State = Setpoint_ChargingState
 
     # ========================================
     # charging-control:

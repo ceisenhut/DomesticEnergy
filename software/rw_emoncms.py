@@ -50,6 +50,17 @@ class EnergyMonitor():
 		except:
 			return 0.0
 
+	def readChargingStateSetpoint (self):
+		rw_apikey = config['local_emon']['rw_apikey']
+		url = 'http://localhost/emoncms/feed/value.json?id=31&apikey=' + rw_apikey
+		try:
+			sock = urlopen(url)
+			data_str = sock.read()
+			sock.close
+			return float((data_str.decode("utf-8")).replace('"', ''))
+		except:
+			return 0.0
+
 	def postDataRemoteServer (self, data, node):
 		url = 'http://www.solardorf-rehetobel.ch/emoncms/input/post.json?node='+str(node)+'&json={'+data+'}&apikey=a711f4f1fe41de54cb3ecd9aacaa18af'
 		answer = urlopen(url)
