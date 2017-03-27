@@ -3,7 +3,7 @@
 try:
     import sys
     from heating_ctrl_hw import *
-    from time import *
+    import time
 
     hw = CtrlHardware()
 
