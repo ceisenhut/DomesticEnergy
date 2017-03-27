@@ -6,7 +6,7 @@ try:
     import time
 
     hw = CtrlHardware()
-
+    hw.cleanupGPIO()
     try:
         DutyCycle = (int) (sys.argv[1])
     except:
