@@ -24,10 +24,9 @@ try:
     #hw.changeOutput(pin=5, state=1)
     #hw.setOutput(0x80)
 
-ElectricHeatPWM = hw.initPWM(36, 1000)
-hw.setPWM(ElectricHeatPWM, DutyCycle)
+	ElectricHeatPWM = hw.initPWM(36, 1000)
+	hw.setPWM(ElectricHeatPWM, DutyCycle)
 
-try:
     while True:
         time.sleep(1)
 
