@@ -6,7 +6,6 @@ try:
     import time
 
     hw = CtrlHardware()
-    hw.cleanupGPIO()
     try:
         DutyCycle = (int) (sys.argv[1])
     except:
@@ -18,7 +17,7 @@ try:
         print ('else-path')
         DutyCycle = 0
 
-    ElectricHeatPWM = hw.initPWM(27, 1000)
+    ElectricHeatPWM = hw.initPWM(37, 1000)
     hw.setPWM(ElectricHeatPWM, DutyCycle)
 
     while True:
