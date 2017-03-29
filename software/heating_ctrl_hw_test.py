@@ -18,12 +18,11 @@ try:
         print ('else-path')
         DutyCycle = 0
 
-    ElectricHeatPWM = hw.initPWM(36, 1000)
+    ElectricHeatPWM = hw.initPWM(27, 1000)
     hw.setPWM(ElectricHeatPWM, DutyCycle)
 
     while True:
         time.sleep(1)
 
 finally:
-    hw.stopPWM(ElectricHeatPWM)
     hw.cleanupGPIO()
