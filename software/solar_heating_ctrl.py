@@ -121,7 +121,7 @@ try:
 
             hw.setPWM(ElectricHeatPWM, ActualDutyCycle)
 
-            ElectricalHeatingDutyCycleLog = "DutyCycleElectricHeating:%3.0f" % ActualDutyCycle
+            ElectricalHeatingDutyCycleLog = "DutyCycleElectricHeating:%2.1f" % (ActualDutyCycle)
 
             try:
                 emon.postData(TempLog, 1)
