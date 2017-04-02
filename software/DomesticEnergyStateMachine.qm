@@ -6,7 +6,7 @@
    <statechart>
     <state name="SetValves4Idle">
      <entry brief="initOutputs(), T7_x = 0"/>
-     <tran trig="TIMEOUT (30s)" target="../../1">
+     <tran trig="TIMEOUT (45s)" target="../../1">
       <tran_glyph conn="86,13,2,0,2">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
@@ -155,7 +155,7 @@
     </state>
     <state name="SetValves4TemperatureShifting">
      <entry brief="setValves4TemperatureShifting(), stopChargePump()"/>
-     <tran trig="TIMEOUT (30s)" target="../../9">
+     <tran trig="TIMEOUT (45s)" target="../../9">
       <tran_glyph conn="35,20,2,0,3">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
