@@ -21,7 +21,7 @@
        <action box="-2,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T1 &gt; 72" target="../../8">
+     <tran trig="T1 &gt; 76" target="../../8">
       <tran_glyph conn="80,19,3,1,-6,-9,-19">
        <action box="0,-2,10,2"/>
       </tran_glyph>
@@ -30,7 +30,7 @@
     </state>
     <state name="SetValves4Charging">
      <entry brief="setValves4Charging(), stopChargePump()"/>
-     <tran trig="TIMEOUT (30s)" target="../../3">
+     <tran trig="TIMEOUT (45s)" target="../../3">
       <tran_glyph conn="86,33,2,0,5">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
@@ -40,20 +40,19 @@
      </state_glyph>
     </state>
     <state name="Charging">
-     <entry brief="initOutputs(), runChargePump()">
-</entry>
+     <entry brief="initOutputs(), runChargePump()"/>
      <exit brief="T7_x = T7"/>
      <tran trig="T2 &lt; 60" target="../../4">
       <tran_glyph conn="86,49,2,0,3">
        <action box="-2,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T2 &gt; 75" target="../../2">
+     <tran trig="T2 &gt; 72" target="../../2">
       <tran_glyph conn="100,38,0,2,-5">
        <action box="0,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T1 &gt; 72" target="../../8">
+     <tran trig="T1 &gt; 76" target="../../8">
       <tran_glyph conn="80,43,3,1,-7,-31,-18">
        <action box="-6,-2,10,2"/>
       </tran_glyph>
@@ -75,12 +74,12 @@
        <action box="0,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T2 &gt; 75" target="../../2">
+     <tran trig="T2 &gt; 72" target="../../2">
       <tran_glyph conn="105,57,1,1,5,-28,-5">
        <action box="-6,-1,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T1 &gt; 72" target="../../8">
+     <tran trig="T1 &gt; 76" target="../../8">
       <tran_glyph conn="80,55,3,1,-8,-41,-17">
        <action box="-6,-2,10,2"/>
       </tran_glyph>
@@ -91,7 +90,7 @@
     </state>
     <state name="SetValves4Discharging">
      <entry brief="setValves4Discharging()"/>
-     <tran trig="TIMEOUT (60s)" target="../../6">
+     <tran trig="TIMEOUT (45s)" target="../../6">
       <tran_glyph conn="86,69,2,0,3">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
@@ -118,7 +117,7 @@
        <action box="0,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T1 &gt; 72" target="../../8">
+     <tran trig="T1 &gt; 76" target="../../8">
       <tran_glyph conn="80,77,3,1,-9,-61,-16">
        <action box="-7,-2,10,2"/>
       </tran_glyph>
@@ -145,7 +144,7 @@
        <action box="0,-2,10,2"/>
       </tran_glyph>
      </tran>
-     <tran trig="T1 &gt; 72" target="../../8">
+     <tran trig="T1 &gt; 76" target="../../8">
       <tran_glyph conn="80,94,3,1,-10,-76,-15">
        <action box="-7,-2,10,2"/>
       </tran_glyph>
@@ -155,19 +154,19 @@
      </state_glyph>
     </state>
     <state name="SetValves4TemperatureShifting">
-     <entry brief="setValves4TemperatureShifting()"/>
+     <entry brief="setValves4TemperatureShifting(), stopChargePump()"/>
      <tran trig="TIMEOUT (30s)" target="../../9">
       <tran_glyph conn="35,20,2,0,3">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
      </tran>
      <state_glyph node="29,7,26,13">
-      <entry box="1,2,24,2"/>
+      <entry box="1,2,24,5"/>
      </state_glyph>
     </state>
     <state name="TemperatureShifting">
      <entry brief="initOutputs(), runChargePump()"/>
-     <tran trig="T1 &lt; 68" target="../../10">
+     <tran trig="T1 &lt; 72" target="../../10">
       <tran_glyph conn="35,32,2,0,6">
        <action box="-3,-2,10,2"/>
       </tran_glyph>
@@ -183,7 +182,7 @@
     </state>
     <state name="TemperatureShiftingIdle">
      <entry brief="stopChargePump()"/>
-     <tran trig="T1 &gt; 72" target="../../9">
+     <tran trig="T1 &gt; 76" target="../../9">
       <tran_glyph conn="49,38,0,2,-6">
        <action box="0,-2,10,2"/>
       </tran_glyph>

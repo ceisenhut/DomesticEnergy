@@ -39,6 +39,14 @@ def setValves4Discharging ():
     hw.changeOutput(pin=4, state=0)
     hw.changeOutput(pin=5, state=1)
 
+def setValves4TemperatureShifting ():
+    hw.changeOutput(pin=0, state=1)
+    hw.changeOutput(pin=1, state=1)
+    hw.changeOutput(pin=2, state=1)
+    hw.changeOutput(pin=3, state=1)
+    hw.changeOutput(pin=4, state=1)
+    hw.changeOutput(pin=5, state=1)
+
 #========================================
 
 SampleTime = 3
@@ -53,6 +61,9 @@ State_ChargingIdle = 4
 State_SetValves4Discharging = 5
 State_Discharging = 6
 State_DischargingIdle = 7
+State_SetValves4TemperatureShifting = 8
+State_TemperatureShifting = 9
+State_TemperatureShiftingIdle = 10
 
 Charging_State = State_SetValves4Idle
 StateCtrlTimeout = 30
@@ -60,6 +71,7 @@ ChargeIntegral = 0
 
 T3_entry = 0
 T2_entry = 0
+T7_exit = 0
 
 PWM_PinElectricHeating = 37
 PWM_Frequency = 1000
@@ -153,25 +165,36 @@ try:
                 Charging_State = State_Idle
                 ChargeIntegral = 0
                 hw.initOutputs()
+                T7_exit = 0
                 StateCtrlTimeout = 30
             elif (Charging_State == State_Idle):
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
+                if (T1 > 76):
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
                 StateCtrlTimeout = 45
             elif (Charging_State == State_SetValves4Charging):
                 Charging_State = State_Charging
                 hw.initOutputs()
                 runChargePump()
+                T7_exit = T7
                 StateCtrlTimeout = 30
             elif (Charging_State == State_Charging):
                 StateCtrlTimeout = 30
+                T7_exit = T7
                 if (T2 < 60):
                     Charging_State = State_ChargingIdle
                     stopChargePump()
-                if (T2 > 75):  # if T2 exceeds 75 degrees, valves may not be set correctly for charging
+                if (T2 > 72):  # if T2 exceeds 72 degrees, valves may not be set correctly for charging
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
+                    StateCtrlTimeout = 45
+                if (T1 > 76):
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
+                    stopChargePump()
                     StateCtrlTimeout = 45
             elif (Charging_State == State_ChargingIdle):
                 if (T2 > 65):
@@ -180,9 +203,13 @@ try:
                 if (T2 < 45):
                     Charging_State = State_SetValves4Discharging
                     setValves4Discharging()
-                if (T2 > 75):  # if T2 exceeds 75 degrees, valves may not be set correctly for charging
+                if (T2 > 72):  # if T2 exceeds 72 degrees, valves may not be set correctly for charging
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
+                if (T1 > 76):
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
+                    stopChargePump()
                 StateCtrlTimeout = 45
             elif (Charging_State == State_SetValves4Discharging):
                 Charging_State = State_Discharging
@@ -190,6 +217,7 @@ try:
                 runChargePump()
                 StateCtrlTimeout = 60
                 T3_entry = T3
+                T7_exit = T7
             elif (Charging_State == State_Discharging):
                 if ((T3>(T3_entry+2)) or (T7 < (T2+2))):
                     Charging_State = State_DischargingIdle
@@ -198,10 +226,17 @@ try:
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
+                    stopChargePump()
                 if (T2 < 23):
                     Charging_State = State_SetValves4Idle
                     setValves4Idle()
+                    stopChargePump()
+                if (T1 > 76):
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
+                    stopChargePump()
                 StateCtrlTimeout = 60
+                T7_exit = T7
             elif (Charging_State == State_DischargingIdle):
                 if (T2<(T2_entry -5)):
                     Charging_State = State_Discharging
@@ -213,7 +248,39 @@ try:
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
+                if (T1 > 76):
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
+                    stopChargePump()
                 StateCtrlTimeout = 60
+            elif (Charging_State == State_SetValves4TemperatureShifting):
+                Charging_State = State_TemperatureShifting
+                hw.initOutputs()
+                runChargePump()
+                StateCtrlTimeout = 30
+            elif (Charging_State == State_TemperatureShifting):
+                if (T1 < 72):
+                    Charging_State = State_TemperatureShiftingIdle
+                    stopChargePump()
+                if (T2 > 65):
+                    Charging_State = State_SetValves4Charging
+                    stopChargePump()
+                StateCtrlTimeout = 30
+            elif (Charging_State == State_TemperatureShiftingIdle):
+                if (T1 > 76):
+                    Charging_State = State_TemperatureShifting
+                    runChargePump()
+                if (T2 > 65):
+                    Charging_State = State_SetValves4Charging
+                    stopChargePump()
+                    setValves4Charging()
+                if ((T2 < 30) and (T7_exit < 30)):
+                    Charging_State = State_SetValves4Idle
+                    hw.initOutputs()
+                if ((T2 < 30) and (T7_exit >= 30)):
+                    Charging_State = State_SetValves4Discharging
+                    setValves4Discharging()
+                StateCtrlTimeout = 30
             else:
                 hw.initOutputs()
                 setValves4Idle()
