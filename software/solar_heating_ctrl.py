@@ -3,6 +3,8 @@
 import heating_ctrl_hw as hardware
 import rw_emoncms as emoncms
 import time
+import os
+import sys
 
 
 hw = hardware.CtrlHardware()
@@ -76,6 +78,8 @@ T7_exit = 0
 PWM_PinElectricHeating = 37
 PWM_Frequency = 1000
 ActualDutyCycle = 0
+GridPowerMonitor = 0
+GridPowerWatchdog = 0
 
 Setpoint_ChargingState = 0
 
@@ -135,17 +139,35 @@ try:
 
             ElectricalHeatingDutyCycleLog = "DutyCycleElectricHeating:%2.1f" % (ActualDutyCycle)
 
+            # ===========================
+            # Watchdog for grid-power
+            # ===========================
+            if (ActualGridPower != GridPowerMonitor):
+                GridPowerMonitor = ActualGridPower
+                GridPowerWatchdog = 0
+            else:
+                GridPowerWatchdog = GridPowerWatchdog + 1
+
+            if (GridPowerWatchdog > 10):
+                os.system("reboot")
+                sys.exit()
+            GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
+            # ===========================
+            # Logging
+            # ===========================
             try:
                 emon.postData(TempLog, 1)
                 emon.postData(StorageMeanTempLog, 1)
                 emon.postData(Charging_State_Log, 1)
                 emon.postData(ElectricalHeatingDutyCycleLog, 1)
+                emon.postData(GridPowerWatchdogLog, 1)
             except:
                 print("local-server not accessible")
             try:
                 emon.postDataRemoteServer(TempLog, 1)
                 emon.postDataRemoteServer(Charging_State_Log, 1)
                 emon.postDataRemoteServer(ElectricalHeatingDutyCycleLog, 1)
+                emon.postDataRemoteServer(GridPowerWatchdogLog, 1)
             except:
                 print("remote-server not accessible")
 
