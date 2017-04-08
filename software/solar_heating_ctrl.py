@@ -49,6 +49,14 @@ def setValves4TemperatureShifting ():
     hw.changeOutput(pin=4, state=1)
     hw.changeOutput(pin=5, state=1)
 
+def setValves4TemperatureShiftingIdle ():
+    hw.changeOutput(pin=0, state=0)
+    hw.changeOutput(pin=1, state=1)
+    hw.changeOutput(pin=2, state=1)
+    hw.changeOutput(pin=3, state=1)
+    hw.changeOutput(pin=4, state=1)
+    hw.changeOutput(pin=5, state=1)
+
 #========================================
 
 SampleTime = 3
@@ -284,29 +292,29 @@ try:
                 if (T1 < 72):
                     Charging_State = State_TemperatureShiftingIdle
                     stopChargePump()
+                    setValves4TemperatureShiftingIdle()
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
                     stopChargePump()
-                StateCtrlTimeout = 30
+                StateCtrlTimeout = 45
             elif (Charging_State == State_TemperatureShiftingIdle):
+                hw.initOutputs()
                 if (T1 > 76):
-                    Charging_State = State_TemperatureShifting
-                    runChargePump()
+                    Charging_State = State_SetValves4TemperatureShifting
+                    setValves4TemperatureShifting()
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
-                    stopChargePump()
                     setValves4Charging()
                 if ((T2 < 30) and (T7_exit < 30)):
                     Charging_State = State_SetValves4Idle
-                    hw.initOutputs()
+                    setValves4Idle()
                 if ((T2 < 30) and (T7_exit >= 30)):
                     Charging_State = State_SetValves4Discharging
                     setValves4Discharging()
-                StateCtrlTimeout = 30
+                StateCtrlTimeout = 45
             else:
-                hw.initOutputs()
                 setValves4Idle()
-                Charging_State = State_Idle
+                Charging_State = State_SetValves4Idle
                 StateCtrlTimeout = 45
 
         StateCtrlTimeout -= SampleTime
