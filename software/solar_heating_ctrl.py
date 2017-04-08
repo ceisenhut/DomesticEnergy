@@ -156,7 +156,7 @@ try:
             else:
                 GridPowerWatchdog = GridPowerWatchdog + 1
 
-            if (GridPowerWatchdog > 10):
+            if (GridPowerWatchdog > 20):
                 os.system("reboot")
                 sys.exit()
             GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
