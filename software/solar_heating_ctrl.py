@@ -81,7 +81,6 @@ ChargeIntegral = 0
 
 T3_entry = 0
 T2_entry = 0
-T7_exit = 0
 
 PWM_PinElectricHeating = 37
 PWM_Frequency = 1000
@@ -100,36 +99,13 @@ try:
 
     ElectricHeatPWM = hw.initPWM(PWM_PinElectricHeating, PWM_Frequency)
 
-    # define setpoint: use last charging state
-    Setpoint_ChargingState = emon.readChargingState()
-    if Setpoint_ChargingState == State_Idle:
-        Setpoint_ChargingState = State_SetValves4Idle
-    elif Setpoint_ChargingState == State_Charging:
-        Setpoint_ChargingState = State_SetValves4Charging
-    elif Setpoint_ChargingState == State_ChargingIdle:
-        Setpoint_ChargingState = State_SetValves4Charging
-    elif Setpoint_ChargingState == State_Discharging:
-        Setpoint_ChargingState = State_SetValves4Discharging
-    elif Setpoint_ChargingState == State_DischargingIdle:
-        Setpoint_ChargingState = State_SetValves4Discharging
-    elif Setpoint_ChargingState == State_TemperatureShifting:
-        Setpoint_ChargingState = State_SetValves4TemperatureShifting
-    elif Setpoint_ChargingState == State_TemperatureShiftingIdle:
-        Setpoint_ChargingState = State_SetValves4TemperatureShifting
-
-    Setpoint_Charging_State_Log = "ChargingStateSetpoint:%2.1f" % (Charging_State)
-    try:
-        emon.postData(Setpoint_Charging_State_Log, 1)
-    except:
-        print("local-server not accessible")
-
     while True:
         T1 = hw.readTemp(0)
         T2 = hw.readTemp(1)
         T3 = hw.readTemp(2)
         T4 = hw.readTemp(3)
-        T5 = hw.readTemp(4)
-        T6 = hw.readTemp(5)
+        T5 = hw.readTemp(4)  # not used already
+        T6 = hw.readTemp(5)  # not used already
         T7 = hw.readTemp(6)
         T8 = hw.readTemp(7)
 
@@ -218,7 +194,6 @@ try:
                 Charging_State = State_Idle
                 ChargeIntegral = 0
                 hw.initOutputs()
-                T7_exit = 0
                 StateCtrlTimeout = 30
             elif (Charging_State == State_Idle):
                 if (T2 > 65):
@@ -227,16 +202,17 @@ try:
                 if (T1 > 76):
                     Charging_State = State_SetValves4TemperatureShifting
                     setValves4TemperatureShifting()
+                if (T8 > T2):
+                    Charging_State = State_SetValves4Discharging
+                    setValves4Discharging()
                 StateCtrlTimeout = 45
             elif (Charging_State == State_SetValves4Charging):
                 Charging_State = State_Charging
                 hw.initOutputs()
                 runChargePump()
-                T7_exit = T7
                 StateCtrlTimeout = 30
             elif (Charging_State == State_Charging):
                 StateCtrlTimeout = 30
-                T7_exit = T7
                 if (T2 < 60):
                     Charging_State = State_ChargingIdle
                     stopChargePump()
@@ -270,7 +246,6 @@ try:
                 runChargePump()
                 StateCtrlTimeout = 60
                 T3_entry = T3
-                T7_exit = T7
             elif (Charging_State == State_Discharging):
                 if ((T3>(T3_entry+2)) or (T7 < (T2+2))):
                     Charging_State = State_DischargingIdle
@@ -289,7 +264,6 @@ try:
                     setValves4TemperatureShifting()
                     stopChargePump()
                 StateCtrlTimeout = 60
-                T7_exit = T7
             elif (Charging_State == State_DischargingIdle):
                 if (T2<(T2_entry -5)):
                     Charging_State = State_Discharging
@@ -328,10 +302,10 @@ try:
                 if (T2 > 65):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
-                if ((T2 < 30) and (T7_exit < 30)):
+                if ((T2 < 30) and (T8 < T2)):
                     Charging_State = State_SetValves4Idle
                     setValves4Idle()
-                if ((T2 < 30) and (T7_exit >= 30)):
+                if ((T2 < 30) and (T8 >= T2)):
                     Charging_State = State_SetValves4Discharging
                     setValves4Discharging()
                 StateCtrlTimeout = 45

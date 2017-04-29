@@ -5,7 +5,7 @@
   <class name="MainControl" superclass="qpc::QActive">
    <statechart>
     <state name="SetValves4Idle">
-     <entry brief="setValves4Idle(), T7_x = 0"/>
+     <entry brief="setValves4Idle()"/>
      <tran trig="TIMEOUT (45s)" target="../../1">
       <tran_glyph conn="86,13,2,0,2">
        <action box="-3,-2,10,2"/>
@@ -27,6 +27,11 @@
        <action box="0,-2,10,2"/>
       </tran_glyph>
      </tran>
+     <tran trig="T8 &gt; T2" target="../../5">
+      <tran_glyph conn="105,20,1,1,12,47,-12">
+       <action box="0,-2,10,2"/>
+      </tran_glyph>
+     </tran>
      <state_glyph node="80,15,25,8">
       <entry box="1,2,15,2"/>
      </state_glyph>
@@ -44,7 +49,6 @@
     </state>
     <state name="Charging">
      <entry brief="initOutputs(), runChargePump()"/>
-     <exit brief="T7_x = T7"/>
      <tran trig="T2 &lt; 60" target="../../4">
       <tran_glyph conn="86,49,2,0,3">
        <action box="-2,-2,10,2"/>
@@ -62,7 +66,6 @@
      </tran>
      <state_glyph node="80,38,25,11">
       <entry box="1,2,18,4"/>
-      <exit box="1,6,18,2"/>
      </state_glyph>
     </state>
     <state name="ChargingIdle">
@@ -104,7 +107,6 @@
     </state>
     <state name="Discharging">
      <entry brief="initOutputs(), runChargePump(), T3_e = T3"/>
-     <exit brief="T7_x = T7"/>
      <tran trig="T3 &gt; (T3_e+2)) or (T7 &lt; (T2+2))" target="../../7">
       <tran_glyph conn="86,85,2,0,3">
        <action box="-4,-2,24,2"/>
@@ -127,7 +129,6 @@
      </tran>
      <state_glyph node="80,72,25,13">
       <entry box="1,2,13,6"/>
-      <exit box="1,8,16,2"/>
      </state_glyph>
     </state>
     <state name="DischargingIdle">
@@ -197,13 +198,13 @@
      </tran>
      <tran trig="T2 &lt; 30">
       <choice target="../../../5">
-       <guard brief="T7_x &gt;= 30"/>
+       <guard brief="T8 &gt;= T2"/>
        <choice_glyph conn="61,46,4,3,21,19">
         <action box="0,7,10,2"/>
        </choice_glyph>
       </choice>
       <choice target="../../../0">
-       <guard brief="T7_x &lt; 30"/>
+       <guard brief="T8 &lt; T2"/>
        <choice_glyph conn="61,46,4,3,-38,19">
         <action box="0,-4,10,2"/>
        </choice_glyph>
