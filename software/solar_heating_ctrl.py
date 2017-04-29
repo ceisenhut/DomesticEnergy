@@ -100,6 +100,29 @@ try:
 
     ElectricHeatPWM = hw.initPWM(PWM_PinElectricHeating, PWM_Frequency)
 
+    # define setpoint: use last charging state
+    Setpoint_ChargingState = emon.readChargingState()
+    if Setpoint_ChargingState == State_Idle:
+        Setpoint_ChargingState = State_SetValves4Idle
+    elif Setpoint_ChargingState == State_Charging:
+        Setpoint_ChargingState = State_SetValves4Charging
+    elif Setpoint_ChargingState == State_ChargingIdle:
+        Setpoint_ChargingState = State_SetValves4Charging
+    elif Setpoint_ChargingState == State_Discharging:
+        Setpoint_ChargingState = State_SetValves4Discharging
+    elif Setpoint_ChargingState == State_DischargingIdle:
+        Setpoint_ChargingState = State_SetValves4Discharging
+    elif Setpoint_ChargingState == State_TemperatureShifting:
+        Setpoint_ChargingState = State_SetValves4TemperatureShifting
+    elif Setpoint_ChargingState == State_TemperatureShiftingIdle:
+        Setpoint_ChargingState = State_SetValves4TemperatureShifting
+
+    Setpoint_Charging_State_Log = "ChargingStateSetpoint:%2.1f" % (Charging_State)
+    try:
+        emon.postData(Setpoint_Charging_State_Log, 1)
+    except:
+        print("local-server not accessible")
+
     while True:
         T1 = hw.readTemp(0)
         T2 = hw.readTemp(1)
