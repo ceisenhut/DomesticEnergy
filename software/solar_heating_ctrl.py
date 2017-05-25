@@ -170,13 +170,13 @@ try:
                 emon.postData(GridPowerWatchdogLog, 1)
             except:
                 print("local-server not accessible")
-            try:
-                emon.postDataRemoteServer(TempLog, 1)
-                emon.postDataRemoteServer(Charging_State_Log, 1)
-                emon.postDataRemoteServer(ElectricalHeatingDutyCycleLog, 1)
-                emon.postDataRemoteServer(GridPowerWatchdogLog, 1)
-            except:
-                print("remote-server not accessible")
+            # try:
+            #     emon.postDataRemoteServer(TempLog, 1)
+            #     emon.postDataRemoteServer(Charging_State_Log, 1)
+            #     emon.postDataRemoteServer(ElectricalHeatingDutyCycleLog, 1)
+            #     emon.postDataRemoteServer(GridPowerWatchdogLog, 1)
+            # except:
+            #     print("remote-server not accessible")
 
             # =======================================================================
             # Allow changing of charging state via emoncms and ChargingStateSetpoint
