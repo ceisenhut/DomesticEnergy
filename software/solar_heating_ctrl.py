@@ -88,7 +88,7 @@ ActualDutyCycle = 0
 GridPowerMonitor = 0
 GridPowerWatchdog = 0
 
-Setpoint_ChargingState = 0
+add_storage_en = False   # additional heat storage enable/disable
 
 #========================================
 try:
@@ -178,13 +178,6 @@ try:
             # except:
             #     print("remote-server not accessible")
 
-            # =======================================================================
-            # Allow changing of charging state via emoncms and ChargingStateSetpoint
-            # =======================================================================
-            NewChargingStateSetpoint = emon.readChargingStateSetpoint()
-            if (Setpoint_ChargingState != NewChargingStateSetpoint) and (NewChargingStateSetpoint != -1):
-                Setpoint_ChargingState = NewChargingStateSetpoint
-                Charging_State = Setpoint_ChargingState
 
         # ========================================
         # charging-control:
@@ -196,7 +189,7 @@ try:
                 hw.initOutputs()
                 StateCtrlTimeout = 30
             elif (Charging_State == State_Idle):
-                if (T2 > 65):
+                if ((T2 > 65) and add_storage_en):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
                 if (T1 > 76):
