@@ -283,7 +283,7 @@ try:
                     Charging_State = State_TemperatureShiftingIdle
                     stopChargePump()
                     setValves4TemperatureShiftingIdle()
-                if (T2 > 65):
+                if ((T2 > 65) and add_storage_en):
                     Charging_State = State_SetValves4Charging
                     stopChargePump()
                 StateCtrlTimeout = 45
@@ -292,7 +292,7 @@ try:
                 if (T1 > 76):
                     Charging_State = State_SetValves4TemperatureShifting
                     setValves4TemperatureShifting()
-                if (T2 > 65):
+                if ((T2 > 65) and add_storage_en):
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
                 if ((T2 < 30) and (T8 < T2)):
