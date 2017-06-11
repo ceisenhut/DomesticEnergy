@@ -192,21 +192,26 @@
        <action box="-6,-1,7,2"/>
       </tran_glyph>
      </tran>
+     <tran trig="T2 &gt; 70" target="../../10">
+      <tran_glyph conn="42,32,2,0,6">
+       <action box="-2,-2,10,2"/>
+      </tran_glyph>
+     </tran>
      <state_glyph node="29,23,26,9">
       <entry box="1,2,19,4"/>
      </state_glyph>
     </state>
     <state name="TemperatureShiftingIdle">
      <entry brief="stopChargePump(), setValves4TemperatureShiftingIdle(), initOutputs()"/>
-     <tran trig="T1 &gt; 76" target="../../8">
+     <tran trig="(T1 &gt; 76) &amp;&amp; (T2 &lt; 70)" target="../../8">
       <tran_glyph conn="23,48,3,3,-4,-33,10">
-       <action box="0,-1,10,2"/>
+       <action box="0,-1,17,2"/>
       </tran_glyph>
      </tran>
      <tran trig="T2 &gt; 65">
       <choice target="../../../2">
        <guard brief="add_storage_en"/>
-       <choice_glyph conn="63,32,5,3,15,0,2">
+       <choice_glyph conn="63,32,5,3,17">
         <action box="1,0,13,2"/>
        </choice_glyph>
       </choice>

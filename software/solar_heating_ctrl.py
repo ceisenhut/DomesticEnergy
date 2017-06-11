@@ -279,7 +279,7 @@ try:
                 runChargePump()
                 StateCtrlTimeout = 30
             elif (Charging_State == State_TemperatureShifting):
-                if (T1 < 72):
+                if ((T1 < 72) or (T2 > 70)):
                     Charging_State = State_TemperatureShiftingIdle
                     stopChargePump()
                     setValves4TemperatureShiftingIdle()
@@ -289,7 +289,7 @@ try:
                 StateCtrlTimeout = 45
             elif (Charging_State == State_TemperatureShiftingIdle):
                 hw.initOutputs()
-                if (T1 > 76):
+                if ((T1 > 76) and (T2 < 70)):
                     Charging_State = State_SetValves4TemperatureShifting
                     setValves4TemperatureShifting()
                 if ((T2 > 65) and add_storage_en):
