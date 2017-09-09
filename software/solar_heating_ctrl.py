@@ -124,6 +124,10 @@ try:
 
         PostDataTime -= SampleTime
 
+        if (T5 < 0):   # read additional storage-enable switch (connected at T5)
+            add_storage_en = True
+        else:
+            add_storage_en = False
 
         if (PostDataTime<=0):
             PostDataTime = 30
