@@ -146,6 +146,8 @@ try:
             if (T1 > 85):
                 ActualDutyCycle = 0
 
+            ActualDutyCycle = 0  # todo: remove, if heating duty-cycle activated
+
             hw.setPWM(ElectricHeatPWM, ActualDutyCycle)
 
             ElectricalHeatingDutyCycleLog = "DutyCycleElectricHeating:%2.1f" % (ActualDutyCycle)
@@ -160,8 +162,9 @@ try:
                 GridPowerWatchdog = GridPowerWatchdog + 1
 
             if (GridPowerWatchdog > 20):
-                os.system("reboot")
-                sys.exit()
+                #os.system("reboot")
+                #sys.exit()
+                GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
             GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
             # ===========================
             # Logging
@@ -217,11 +220,11 @@ try:
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
                     StateCtrlTimeout = 45
-                if (T1 > 76):
-                    Charging_State = State_SetValves4TemperatureShifting
-                    setValves4TemperatureShifting()
-                    stopChargePump()
-                    StateCtrlTimeout = 45
+                # if (T1 > 76):
+                #     Charging_State = State_SetValves4TemperatureShifting
+                #     setValves4TemperatureShifting()
+                #     stopChargePump()
+                #     StateCtrlTimeout = 45
             elif (Charging_State == State_ChargingIdle):
                 if (T2 > 65):
                     Charging_State = State_Charging
@@ -232,10 +235,10 @@ try:
                 if (T2 > 72):  # if T2 exceeds 72 degrees, valves may not be set correctly for charging
                     Charging_State = State_SetValves4Charging
                     setValves4Charging()
-                if (T1 > 76):
-                    Charging_State = State_SetValves4TemperatureShifting
-                    setValves4TemperatureShifting()
-                    stopChargePump()
+                # if (T1 > 76):
+                #     Charging_State = State_SetValves4TemperatureShifting
+                #     setValves4TemperatureShifting()
+                #     stopChargePump()
                 StateCtrlTimeout = 45
             elif (Charging_State == State_SetValves4Discharging):
                 Charging_State = State_Discharging
