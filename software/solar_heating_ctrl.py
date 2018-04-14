@@ -90,6 +90,20 @@ GridPowerWatchdog = 0
 
 add_storage_en = False   # additional heat storage enable/disable
 
+Pulse1_Pin = 29
+Pulse2_Pin = 31
+
+Pulse1 = 0
+Pulse2 = 0
+
+def PulseInterrupt1(n):
+    global Pulse1
+    Pulse1 = Pulse1 + 1
+
+def PulseInterrupt2 (n):
+    global Pulse2
+    Pulse2 = Pulse2 + 1
+
 #========================================
 try:
     hw.initOutputs()
@@ -99,12 +113,15 @@ try:
 
     ElectricHeatPWM = hw.initPWM(PWM_PinElectricHeating, PWM_Frequency)
 
+    hw.initEventDetect(Pulse1_Pin, PulseInterrupt1)
+    hw.initEventDetect(Pulse2_Pin, PulseInterrupt2)
+
     while True:
         T1 = hw.readTemp(0)
         T2 = hw.readTemp(1)
         T3 = hw.readTemp(2)
         T4 = hw.readTemp(3)
-        T5 = hw.readTemp(4)  # not used already
+        T5 = hw.readTemp(4)  # used for additional storage switch
         T6 = hw.readTemp(5)  # not used already
         T7 = hw.readTemp(6)
         T8 = hw.readTemp(7)
@@ -121,6 +138,8 @@ try:
         StorageMeanTempLog = "StorageMeanTemp:%2.1f" % (StorageMeanTemp)
 
         Charging_State_Log = "ChargingState:%2.1f" % (Charging_State)
+
+        Pulse_Count_Log = "Pulse1:%2.1f,Pulse2:%2.1f" % (Pulse1, Pulse2)
 
         PostDataTime -= SampleTime
 
@@ -146,7 +165,7 @@ try:
             if (T1 > 85):
                 ActualDutyCycle = 0
 
-            ActualDutyCycle = 0  # todo: remove, if heating duty-cycle activated
+            #ActualDutyCycle = 0  # todo: remove, if heating duty-cycle activated
 
             hw.setPWM(ElectricHeatPWM, ActualDutyCycle)
 
@@ -162,9 +181,9 @@ try:
                 GridPowerWatchdog = GridPowerWatchdog + 1
 
             if (GridPowerWatchdog > 20):
-                #os.system("reboot")
-                #sys.exit()
-                GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
+                os.system("reboot")
+                sys.exit()
+                #GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
             GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
             # ===========================
             # Logging
@@ -175,6 +194,7 @@ try:
                 emon.postData(Charging_State_Log, 1)
                 emon.postData(ElectricalHeatingDutyCycleLog, 1)
                 emon.postData(GridPowerWatchdogLog, 1)
+                emon.postData(Pulse_Count_Log, 1)
             except:
                 print("local-server not accessible")
             # try:

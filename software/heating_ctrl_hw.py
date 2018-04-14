@@ -75,6 +75,12 @@ class CtrlHardware():
 	def cleanupGPIO (self):
 		gpio.cleanup()
 
+	def initEventDetect (self, pin, callback_function):
+		gpio.setmode(gpio.BOARD)
+		#gpio.setup(pin, gpio.IN, pull_up_down=gpio.PUD_UP)
+		gpio.setup(pin, gpio.IN)
+		gpio.add_event_detect(pin, gpio.FALLING)
+		gpio.add_event_callback(pin, callback_function)
 
 	
 #hw = CtrlHardware()
