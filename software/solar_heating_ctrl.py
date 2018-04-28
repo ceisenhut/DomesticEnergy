@@ -166,10 +166,11 @@ try:
                 ActualDutyCycle = 0
 
             #ActualDutyCycle = 0  # todo: remove, if heating duty-cycle activated
-            if add_storage_en:
-                ActualDutyCycle = 0
-            else:
-                ActualDutyCycle = 100
+            
+            # if add_storage_en:
+            #     ActualDutyCycle = 0
+            # else:
+            #     ActualDutyCycle = 100
 
             hw.setPWM(ElectricHeatPWM, ActualDutyCycle)
 
