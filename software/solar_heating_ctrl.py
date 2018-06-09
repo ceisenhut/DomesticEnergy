@@ -96,13 +96,30 @@ Pulse2_Pin = 31
 Pulse1 = 0
 Pulse2 = 0
 
+Millisec1 = 0
+Millisec2 = 0
+Power1 = 0
+Power2 = 0
+
 def PulseInterrupt1(n):
     global Pulse1
+    global Millisec1
+    global Power1
     Pulse1 = Pulse1 + 1
+    millis = int(round(time.time() * 1000))
+    DeltaTime = millis - Millisec1
+    Millisec1 = millis
+    Power1 = 3600000/DeltaTime    # 1pulse = 1Wh = 3600Ws
 
 def PulseInterrupt2 (n):
     global Pulse2
+    global Millisec2
+    global Power2
     Pulse2 = Pulse2 + 1
+    millis = int(round(time.time() * 1000))
+    DeltaTime = millis - Millisec2
+    Millisec2 = millis
+    Power2 = 3600000/DeltaTime    # 1pulse = 1Wh = 3600Ws
 
 #========================================
 try:
@@ -110,6 +127,9 @@ try:
     setValves4Idle()
     time.sleep(45)
     hw.initOutputs()
+
+    Millisec1 = int(round(time.time() * 1000))
+    Millisec2 = Millisec1
 
     ElectricHeatPWM = hw.initPWM(PWM_PinElectricHeating, PWM_Frequency)
 
@@ -140,6 +160,8 @@ try:
         Charging_State_Log = "ChargingState:%2.1f" % (Charging_State)
 
         Pulse_Count_Log = "Pulse1:%2.1f,Pulse2:%2.1f" % (Pulse1, Pulse2)
+
+        Electric_Power_Log = "Power1:%2.1f,Power2:%2.1f" % (Power1, Power2)
 
         PostDataTime -= SampleTime
 
@@ -200,6 +222,7 @@ try:
                 emon.postData(ElectricalHeatingDutyCycleLog, 1)
                 emon.postData(GridPowerWatchdogLog, 1)
                 emon.postData(Pulse_Count_Log, 1)
+                emon.postData(Electric_Power_Log, 1)
             except:
                 print("local-server not accessible")
             # try:
