@@ -188,7 +188,7 @@ try:
             if (GridPowerWatchdog > 20):
                 os.system("reboot")
                 sys.exit()
-                #GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
+                GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
             GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
             # ===========================
             # Logging

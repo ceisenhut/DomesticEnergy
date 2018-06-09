@@ -27,24 +27,24 @@ class CtrlHardware():
 		if sensor_id >= 0 and sensor_id < 8:
 			#set output-latch of GPB3 low
 			mux_byte = format(sensor_id, '#04x')
-			os.system('i2cset -y 1 0x20 0x15 '+mux_byte)
+			#os.system('i2cset -y 1 0x20 0x15 '+mux_byte)
 		#set pins 0..3 of register B as output
-		os.system('i2cset -y 1 0x20 0x01 0xF0')
+		#os.system('i2cset -y 1 0x20 0x01 0xF0')
 		time.sleep (0.2)
-		adc_result = self.spi.xfer([0x01, 0x80, 0x00])
-		value = 256*adc_result[1] + adc_result[2]
-		Temp = 100.0*(value - adc_0degrees)/(adc_100degrees - adc_0degrees)
+		#adc_result = self.spi.xfer([0x01, 0x80, 0x00])
+		#value = 256*adc_result[1] + adc_result[2]
+		Temp = 100.0*(400 - adc_0degrees)/(adc_100degrees - adc_0degrees)
 		return Temp
 
 	def initOutputs (self):
 		self._output = 0x00
-		os.system('i2cset -y 1 0x20 0x14 0x00')
-		os.system('i2cset -y 1 0x20 0x00 0x00')
+		#os.system('i2cset -y 1 0x20 0x14 0x00')
+		#os.system('i2cset -y 1 0x20 0x00 0x00')
 
 	def setOutput (self, output):
 		self._output = (~output + 256)
-		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
-		os.system('i2cset -y 1 0x20 0x00 0x00')
+		#os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
+		#os.system('i2cset -y 1 0x20 0x00 0x00')
 
 	def changeOutput (self, pin=0, state=0):
 		"""
@@ -57,8 +57,8 @@ class CtrlHardware():
 			self._output = self._output | (2**pin)
 		else:
 			self._output = self._output & ((~(2**pin))+ 256)
-		os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
-		os.system('i2cset -y 1 0x20 0x00 0x00')
+		#os.system('i2cset -y 1 0x20 0x14 ' + format(self._output, '#04x'))
+		#os.system('i2cset -y 1 0x20 0x00 0x00')
 
 	def initPWM (self, pin, freq):
 		gpio.setmode(gpio.BOARD)
