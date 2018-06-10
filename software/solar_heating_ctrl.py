@@ -176,7 +176,8 @@ try:
             # ===========================================
             # Control of electrical heating
             # ===========================================
-            ActualGridPower = emon.readTotalElectricalPower()
+            #ActualGridPower = emon.readTotalElectricalPower()
+            ActualGridPower = Power1 - Power2
             ActualDutyCycle = ActualDutyCycle - (ActualGridPower / 50)
 
             if (ActualDutyCycle > 100):
@@ -208,8 +209,8 @@ try:
                 GridPowerWatchdog = GridPowerWatchdog + 1
 
             if (GridPowerWatchdog > 20):
-                os.system("reboot")
-                sys.exit()
+                #os.system("reboot")
+                #sys.exit()
                 GridPowerWatchdog = 0  #todo: eliminate grid-power-watchdog?
             GridPowerWatchdogLog = "GridPowerWatchdog:%2.1f" % (GridPowerWatchdog)
             # ===========================
