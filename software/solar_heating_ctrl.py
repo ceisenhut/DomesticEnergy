@@ -100,26 +100,30 @@ Millisec1 = 0
 Millisec2 = 0
 Power1 = 0
 Power2 = 0
+DeltaTime1 = 1
+DeltaTime2 = 1
 
 def PulseInterrupt1(n):
     global Pulse1
     global Millisec1
     global Power1
+    global DeltaTime1
     Pulse1 = Pulse1 + 1
     millis = int(round(time.time() * 1000))
-    DeltaTime = millis - Millisec1
+    DeltaTime1 = millis - Millisec1
     Millisec1 = millis
-    Power1 = 3600000/DeltaTime    # 1pulse = 1Wh = 3600Ws
+    Power1 = 3600000/DeltaTime1    # 1pulse = 1Wh = 3600Ws
 
 def PulseInterrupt2 (n):
     global Pulse2
     global Millisec2
     global Power2
+    global DeltaTime2
     Pulse2 = Pulse2 + 1
     millis = int(round(time.time() * 1000))
-    DeltaTime = millis - Millisec2
+    DeltaTime2 = millis - Millisec2
     Millisec2 = millis
-    Power2 = 3600000/DeltaTime    # 1pulse = 1Wh = 3600Ws
+    Power2 = 3600000/DeltaTime2    # 1pulse = 1Wh = 3600Ws
 
 #========================================
 try:
@@ -145,6 +149,17 @@ try:
         T6 = hw.readTemp(5)  # not used already
         T7 = hw.readTemp(6)
         T8 = hw.readTemp(7)
+
+        # update electric power (Power1, Power2) if necessary
+        millis = int(round(time.time() * 1000))
+        DeltaTimeAct = millis - Millisec1
+        if (DeltaTimeAct > DeltaTime1):
+            Power1 = 3600000/DeltaTimeAct    # 1pulse = 1Wh = 3600Ws
+        millis = int(round(time.time() * 1000))
+        DeltaTimeAct = millis - Millisec2
+        if (DeltaTimeAct > DeltaTime2):
+            Power2 = 3600000/DeltaTimeAct    # 1pulse = 1Wh = 3600Ws
+
 
         ReadTime = 1.6 #0.2 seconds for each read
         # TODO: split sampling and reading
