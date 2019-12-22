@@ -1,0 +1,2363 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L SolarHeatingControl-rescue:OPA2340 U?
+U 1 1 5E000BD3
+P 4600 1800
+AR Path="/5E000BD3" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BD3" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000BD3" Ref="U3"  Part="1" 
+F 0 "U3" H 4150 2200 60  0000 C CNN
+F 1 "OPA2340" H 4550 1550 60  0000 C CNN
+F 2 "" H 4550 1550 60  0000 C CNN
+F 3 "" H 4550 1550 60  0000 C CNN
+	1    4600 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:OPA2340 U?
+U 1 1 5E000BD9
+P 5200 3550
+AR Path="/5E000BD9" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BD9" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000BD9" Ref="U4"  Part="1" 
+F 0 "U4" H 4750 3950 60  0000 C CNN
+F 1 "OPA2340" H 5150 3300 60  0000 C CNN
+F 2 "" H 5150 3300 60  0000 C CNN
+F 3 "" H 5150 3300 60  0000 C CNN
+	1    5200 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:CD4051B U?
+U 1 1 5E000BDF
+P 2900 3100
+AR Path="/5E000BDF" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BDF" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000BDF" Ref="U2"  Part="1" 
+F 0 "U2" H 2750 3550 60  0000 C CNN
+F 1 "CD4051B" H 2850 2550 60  0000 C CNN
+F 2 "" H 2850 2550 60  0000 C CNN
+F 3 "" H 2850 2550 60  0000 C CNN
+	1    2900 3100
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:D_Schottky D?
+U 1 1 5E000BE5
+P 8800 1600
+AR Path="/5E000BE5" Ref="D?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BE5" Ref="D?"  Part="1" 
+AR Path="/5E04B915/5E000BE5" Ref="D1"  Part="1" 
+F 0 "D1" H 8800 1700 50  0000 C CNN
+F 1 "LM4040" H 8800 1500 50  0000 C CNN
+F 2 "" H 8800 1600 50  0000 C CNN
+F 3 "" H 8800 1600 50  0000 C CNN
+	1    8800 1600
+	0    1    1    0   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000BEB
+P 5350 2350
+AR Path="/5E000BEB" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BEB" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000BEB" Ref="R3"  Part="1" 
+F 0 "R3" V 5430 2350 50  0000 C CNN
+F 1 "1K" V 5350 2350 50  0000 C CNN
+F 2 "" V 5280 2350 50  0000 C CNN
+F 3 "" H 5350 2350 50  0000 C CNN
+	1    5350 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+2V5 #PWR?
+U 1 1 5E000BF1
+P 8400 1350
+AR Path="/5E000BF1" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BF1" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000BF1" Ref="#PWR031"  Part="1" 
+F 0 "#PWR031" H 8400 1200 50  0001 C CNN
+F 1 "+2V5" H 8400 1490 50  0000 C CNN
+F 2 "" H 8400 1350 50  0000 C CNN
+F 3 "" H 8400 1350 50  0000 C CNN
+	1    8400 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000BF7
+P 7750 1000
+AR Path="/5E000BF7" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BF7" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000BF7" Ref="#PWR028"  Part="1" 
+F 0 "#PWR028" H 7750 850 50  0001 C CNN
+F 1 "+3.3V" H 7750 1140 50  0000 C CNN
+F 2 "" H 7750 1000 50  0000 C CNN
+F 3 "" H 7750 1000 50  0000 C CNN
+	1    7750 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5E000BFD
+P 2550 8600
+AR Path="/5E000BFD" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BFD" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000BFD" Ref="#PWR016"  Part="1" 
+F 0 "#PWR016" H 2550 8450 50  0001 C CNN
+F 1 "+5V" H 2550 8740 50  0000 C CNN
+F 2 "" H 2550 8600 50  0000 C CNN
+F 3 "" H 2550 8600 50  0000 C CNN
+	1    2550 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000C03
+P 1950 8650
+AR Path="/5E000C03" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C03" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C03" Ref="#PWR013"  Part="1" 
+F 0 "#PWR013" H 1950 8500 50  0001 C CNN
+F 1 "+3.3V" H 1950 8790 50  0000 C CNN
+F 2 "" H 1950 8650 50  0000 C CNN
+F 3 "" H 1950 8650 50  0000 C CNN
+	1    1950 8650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000C09
+P 7750 1150
+AR Path="/5E000C09" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C09" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000C09" Ref="C9"  Part="1" 
+F 0 "C9" H 7775 1250 50  0000 L CNN
+F 1 "100n" H 7775 1050 50  0000 L CNN
+F 2 "" H 7788 1000 50  0000 C CNN
+F 3 "" H 7750 1150 50  0000 C CNN
+	1    7750 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C0F
+P 7750 1300
+AR Path="/5E000C0F" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C0F" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C0F" Ref="#PWR029"  Part="1" 
+F 0 "#PWR029" H 7750 1050 50  0001 C CNN
+F 1 "GND" H 7750 1150 50  0000 C CNN
+F 2 "" H 7750 1300 50  0000 C CNN
+F 3 "" H 7750 1300 50  0000 C CNN
+	1    7750 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C15
+P 8800 1200
+AR Path="/5E000C15" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C15" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C15" Ref="R11"  Part="1" 
+F 0 "R11" V 8880 1200 50  0000 C CNN
+F 1 "1K" V 8800 1200 50  0000 C CNN
+F 2 "" V 8730 1200 50  0000 C CNN
+F 3 "" H 8800 1200 50  0000 C CNN
+	1    8800 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C1B
+P 8800 1850
+AR Path="/5E000C1B" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C1B" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C1B" Ref="#PWR032"  Part="1" 
+F 0 "#PWR032" H 8800 1600 50  0001 C CNN
+F 1 "GND" H 8800 1700 50  0000 C CNN
+F 2 "" H 8800 1850 50  0000 C CNN
+F 3 "" H 8800 1850 50  0000 C CNN
+	1    8800 1850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000C21
+P 8300 1600
+AR Path="/5E000C21" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C21" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000C21" Ref="C10"  Part="1" 
+F 0 "C10" H 8325 1700 50  0000 L CNN
+F 1 "100n" H 8325 1500 50  0000 L CNN
+F 2 "" H 8338 1450 50  0000 C CNN
+F 3 "" H 8300 1600 50  0000 C CNN
+	1    8300 1600
+	1    0    0    -1  
+$EndComp
+Text Label 8150 1950 0    60   ~ 0
+SPI_CLK
+Text Label 8150 2050 0    60   ~ 0
+SPI_MISO
+Text Label 8150 2150 0    60   ~ 0
+SPI_MOSI
+Text Label 8150 2250 0    60   ~ 0
+SPI_CS_ADC
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C31
+P 5950 1650
+AR Path="/5E000C31" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C31" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C31" Ref="R6"  Part="1" 
+F 0 "R6" V 6030 1650 50  0000 C CNN
+F 1 "1K" V 5950 1650 50  0000 C CNN
+F 2 "" V 5880 1650 50  0000 C CNN
+F 3 "" H 5950 1650 50  0000 C CNN
+	1    5950 1650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+2V5 #PWR?
+U 1 1 5E000C37
+P 3450 1750
+AR Path="/5E000C37" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C37" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C37" Ref="#PWR018"  Part="1" 
+F 0 "#PWR018" H 3450 1600 50  0001 C CNN
+F 1 "+2V5" H 3450 1890 50  0000 C CNN
+F 2 "" H 3450 1750 50  0000 C CNN
+F 3 "" H 3450 1750 50  0000 C CNN
+	1    3450 1750
+	1    0    0    -1  
+$EndComp
+Text Label 3000 1550 0    60   ~ 0
+SENS_SUPPLY
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C3E
+P 3850 2250
+AR Path="/5E000C3E" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C3E" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C3E" Ref="#PWR019"  Part="1" 
+F 0 "#PWR019" H 3850 2000 50  0001 C CNN
+F 1 "GND" H 3850 2100 50  0000 C CNN
+F 2 "" H 3850 2250 50  0000 C CNN
+F 3 "" H 3850 2250 50  0000 C CNN
+	1    3850 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C44
+P 4450 3600
+AR Path="/5E000C44" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C44" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C44" Ref="#PWR020"  Part="1" 
+F 0 "#PWR020" H 4450 3350 50  0001 C CNN
+F 1 "GND" H 4450 3450 50  0000 C CNN
+F 2 "" H 4450 3600 50  0000 C CNN
+F 3 "" H 4450 3600 50  0000 C CNN
+	1    4450 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C4A
+P 5650 2350
+AR Path="/5E000C4A" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C4A" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C4A" Ref="R5"  Part="1" 
+F 0 "R5" V 5730 2350 50  0000 C CNN
+F 1 "1K" V 5650 2350 50  0000 C CNN
+F 2 "" V 5580 2350 50  0000 C CNN
+F 3 "" H 5650 2350 50  0000 C CNN
+	1    5650 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C50
+P 5650 1900
+AR Path="/5E000C50" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C50" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C50" Ref="R4"  Part="1" 
+F 0 "R4" V 5730 1900 50  0000 C CNN
+F 1 "27K" V 5650 1900 50  0000 C CNN
+F 2 "" V 5580 1900 50  0000 C CNN
+F 3 "" H 5650 1900 50  0000 C CNN
+	1    5650 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C56
+P 6550 3300
+AR Path="/5E000C56" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C56" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C56" Ref="R8"  Part="1" 
+F 0 "R8" V 6630 3300 50  0000 C CNN
+F 1 "10K" V 6550 3300 50  0000 C CNN
+F 2 "" V 6480 3300 50  0000 C CNN
+F 3 "" H 6550 3300 50  0000 C CNN
+	1    6550 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C5C
+P 6550 3850
+AR Path="/5E000C5C" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C5C" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C5C" Ref="R9"  Part="1" 
+F 0 "R9" V 6630 3850 50  0000 C CNN
+F 1 "820" V 6550 3850 50  0000 C CNN
+F 2 "" V 6480 3850 50  0000 C CNN
+F 3 "" H 6550 3850 50  0000 C CNN
+	1    6550 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C62
+P 6550 4000
+AR Path="/5E000C62" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C62" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C62" Ref="#PWR026"  Part="1" 
+F 0 "#PWR026" H 6550 3750 50  0001 C CNN
+F 1 "GND" H 6550 3850 50  0000 C CNN
+F 2 "" H 6550 4000 50  0000 C CNN
+F 3 "" H 6550 4000 50  0000 C CNN
+	1    6550 4000
+	1    0    0    -1  
+$EndComp
+Text Label 6550 3000 0    60   ~ 0
+SENS_SUPPLY
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C69
+P 4850 2150
+AR Path="/5E000C69" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C69" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C69" Ref="R2"  Part="1" 
+F 0 "R2" V 4930 2150 50  0000 C CNN
+F 1 "27K" V 4850 2150 50  0000 C CNN
+F 2 "" V 4780 2150 50  0000 C CNN
+F 3 "" H 4850 2150 50  0000 C CNN
+	1    4850 2150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000C6F
+P 6450 1900
+AR Path="/5E000C6F" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C6F" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000C6F" Ref="R7"  Part="1" 
+F 0 "R7" V 6530 1900 50  0000 C CNN
+F 1 "1K" V 6450 1900 50  0000 C CNN
+F 2 "" V 6380 1900 50  0000 C CNN
+F 3 "" H 6450 1900 50  0000 C CNN
+	1    6450 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000C75
+P 6150 1900
+AR Path="/5E000C75" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C75" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000C75" Ref="C8"  Part="1" 
+F 0 "C8" H 6175 2000 50  0000 L CNN
+F 1 "100n" H 6175 1800 50  0000 L CNN
+F 2 "" H 6188 1750 50  0000 C CNN
+F 3 "" H 6150 1900 50  0000 C CNN
+	1    6150 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C7B
+P 6300 2100
+AR Path="/5E000C7B" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C7B" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C7B" Ref="#PWR025"  Part="1" 
+F 0 "#PWR025" H 6300 1850 50  0001 C CNN
+F 1 "GND" H 6300 1950 50  0000 C CNN
+F 2 "" H 6300 2100 50  0000 C CNN
+F 3 "" H 6300 2100 50  0000 C CNN
+	1    6300 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C81
+P 3400 2600
+AR Path="/5E000C81" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C81" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C81" Ref="#PWR017"  Part="1" 
+F 0 "#PWR017" H 3400 2350 50  0001 C CNN
+F 1 "GND" H 3400 2450 50  0000 C CNN
+F 2 "" H 3400 2600 50  0000 C CNN
+F 3 "" H 3400 2600 50  0000 C CNN
+	1    3400 2600
+	1    0    0    1   
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000C87
+P 2500 3400
+AR Path="/5E000C87" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C87" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C87" Ref="#PWR014"  Part="1" 
+F 0 "#PWR014" H 2500 3250 50  0001 C CNN
+F 1 "+3.3V" H 2500 3540 50  0000 C CNN
+F 2 "" H 2500 3400 50  0000 C CNN
+F 3 "" H 2500 3400 50  0000 C CNN
+	1    2500 3400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5E000C8D
+P 5300 1150
+AR Path="/5E000C8D" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C8D" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C8D" Ref="#PWR022"  Part="1" 
+F 0 "#PWR022" H 5300 1000 50  0001 C CNN
+F 1 "+5V" H 5300 1290 50  0000 C CNN
+F 2 "" H 5300 1150 50  0000 C CNN
+F 3 "" H 5300 1150 50  0000 C CNN
+	1    5300 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5E000C93
+P 5900 2850
+AR Path="/5E000C93" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C93" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C93" Ref="#PWR024"  Part="1" 
+F 0 "#PWR024" H 5900 2700 50  0001 C CNN
+F 1 "+5V" H 5900 2990 50  0000 C CNN
+F 2 "" H 5900 2850 50  0000 C CNN
+F 3 "" H 5900 2850 50  0000 C CNN
+	1    5900 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:CONN_02X20 P?
+U 1 1 5E000C99
+P 2300 9700
+AR Path="/5E000C99" Ref="P?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C99" Ref="P?"  Part="1" 
+AR Path="/5E04B915/5E000C99" Ref="P3"  Part="1" 
+F 0 "P3" H 2300 10750 50  0000 C CNN
+F 1 "CONN_02X20" V 2300 9700 50  0000 C CNN
+F 2 "" H 2300 8750 50  0000 C CNN
+F 3 "" H 2300 8750 50  0000 C CNN
+	1    2300 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C9F
+P 1850 10750
+AR Path="/5E000C9F" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C9F" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C9F" Ref="#PWR09"  Part="1" 
+F 0 "#PWR09" H 1850 10500 50  0001 C CNN
+F 1 "GND" H 1850 10600 50  0000 C CNN
+F 2 "" H 1850 10750 50  0000 C CNN
+F 3 "" H 1850 10750 50  0000 C CNN
+	1    1850 10750
+	1    0    0    -1  
+$EndComp
+Text Notes 1200 9250 0    60   ~ 0
+res (SPI1)
+Text Notes 2800 9250 0    60   ~ 0
+res (SPI1), PWM, audio
+Text Notes 1200 9350 0    60   ~ 0
+res (SPI1)
+Text Label 2800 10250 0    60   ~ 0
+ONE_WIRE_DATA
+Text Notes 2800 9050 0    60   ~ 0
+res (UART TxD)
+Text Notes 2800 9150 0    60   ~ 0
+res (UART RxD)
+Text Label 1200 9650 0    60   ~ 0
+SPI_MOSI
+Text Label 1200 9750 0    60   ~ 0
+SPI_MISO
+Text Label 1200 9850 0    60   ~ 0
+SPI_CLK
+Text Label 2800 9850 0    60   ~ 0
+SPI_CS_ADC
+Text Notes 2800 9950 0    60   ~ 0
+res (SPI0_CE1)
+Text Notes 1200 10050 0    60   ~ 0
+res (ID_SD)
+Text Notes 2800 10050 0    60   ~ 0
+res (ID_SC)
+Text Label 2050 2700 0    60   ~ 0
+AMUX_C
+Text Label 2050 2800 0    60   ~ 0
+AMUX_B
+Text Label 2050 2900 0    60   ~ 0
+AMUX_A
+$Comp
+L SolarHeatingControl-rescue:MCP23017 U?
+U 1 1 5E000CB5
+P 10950 8050
+AR Path="/5E000CB5" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CB5" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000CB5" Ref="U6"  Part="1" 
+F 0 "U6" H 10700 8900 60  0000 C CNN
+F 1 "MCP23017" H 10950 7300 60  0000 C CNN
+F 2 "" H 10950 7300 60  0000 C CNN
+F 3 "" H 10950 7300 60  0000 C CNN
+	1    10950 8050
+	1    0    0    -1  
+$EndComp
+Text Label 1200 8850 0    60   ~ 0
+I2C_SDA
+Text Label 1200 8950 0    60   ~ 0
+I2C_SCL
+$Comp
+L power:GND #PWR?
+U 1 1 5E000CBD
+P 11500 8900
+AR Path="/5E000CBD" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CBD" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CBD" Ref="#PWR043"  Part="1" 
+F 0 "#PWR043" H 11500 8650 50  0001 C CNN
+F 1 "GND" H 11500 8750 50  0000 C CNN
+F 2 "" H 11500 8900 50  0000 C CNN
+F 3 "" H 11500 8900 50  0000 C CNN
+	1    11500 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000CC3
+P 11500 8350
+AR Path="/5E000CC3" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CC3" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CC3" Ref="#PWR042"  Part="1" 
+F 0 "#PWR042" H 11500 8200 50  0001 C CNN
+F 1 "+3.3V" H 11500 8490 50  0000 C CNN
+F 2 "" H 11500 8350 50  0000 C CNN
+F 3 "" H 11500 8350 50  0000 C CNN
+	1    11500 8350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000CC9
+P 6700 2450
+AR Path="/5E000CC9" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CC9" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CC9" Ref="#PWR027"  Part="1" 
+F 0 "#PWR027" H 6700 2200 50  0001 C CNN
+F 1 "GND" H 6700 2300 50  0000 C CNN
+F 2 "" H 6700 2450 50  0000 C CNN
+F 3 "" H 6700 2450 50  0000 C CNN
+	1    6700 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000CCF
+P 9650 8300
+AR Path="/5E000CCF" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CCF" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000CCF" Ref="C11"  Part="1" 
+F 0 "C11" H 9675 8400 50  0000 L CNN
+F 1 "100n" H 9675 8200 50  0000 L CNN
+F 2 "" H 9688 8150 50  0000 C CNN
+F 3 "" H 9650 8300 50  0000 C CNN
+	1    9650 8300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000CD5
+P 9650 8550
+AR Path="/5E000CD5" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CD5" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CD5" Ref="#PWR034"  Part="1" 
+F 0 "#PWR034" H 9650 8300 50  0001 C CNN
+F 1 "GND" H 9650 8400 50  0000 C CNN
+F 2 "" H 9650 8550 50  0000 C CNN
+F 3 "" H 9650 8550 50  0000 C CNN
+	1    9650 8550
+	1    0    0    -1  
+$EndComp
+Text Label 9950 8450 0    60   ~ 0
+I2C_SCL
+Text Label 9950 8550 0    60   ~ 0
+I2C_SDA
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000CDD
+P 9650 8150
+AR Path="/5E000CDD" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CDD" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CDD" Ref="#PWR033"  Part="1" 
+F 0 "#PWR033" H 9650 8000 50  0001 C CNN
+F 1 "+3.3V" H 9650 8290 50  0000 C CNN
+F 2 "" H 9650 8150 50  0000 C CNN
+F 3 "" H 9650 8150 50  0000 C CNN
+	1    9650 8150
+	0    -1   -1   0   
+$EndComp
+Text Label 9700 7450 0    60   ~ 0
+AMUX_B
+Text Label 9700 7350 0    60   ~ 0
+AMUX_A
+Text Label 9700 7550 0    60   ~ 0
+AMUX_C
+Text Label 3450 2900 0    60   ~ 0
+INH_A
+Text Label 9700 7650 0    60   ~ 0
+INH_A
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000CE8
+P 10200 7000
+AR Path="/5E000CE8" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CE8" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000CE8" Ref="R16"  Part="1" 
+F 0 "R16" V 10280 7000 50  0000 C CNN
+F 1 "10K" V 10200 7000 50  0000 C CNN
+F 2 "" V 10130 7000 50  0000 C CNN
+F 3 "" H 10200 7000 50  0000 C CNN
+	1    10200 7000
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:CONN_01X02 P?
+U 1 1 5E000CEE
+P 950 3150
+AR Path="/5E000CEE" Ref="P?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CEE" Ref="P?"  Part="1" 
+AR Path="/5E04B915/5E000CEE" Ref="P1"  Part="1" 
+F 0 "P1" H 950 3300 50  0000 C CNN
+F 1 "CONN_01X02" V 1050 3150 50  0000 C CNN
+F 2 "" H 950 3150 50  0000 C CNN
+F 3 "" H 950 3150 50  0000 C CNN
+	1    950  3150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000CF4
+P 1200 2850
+AR Path="/5E000CF4" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CF4" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000CF4" Ref="R1"  Part="1" 
+F 0 "R1" V 1280 2850 50  0000 C CNN
+F 1 "10K" V 1200 2850 50  0000 C CNN
+F 2 "" V 1130 2850 50  0000 C CNN
+F 3 "" H 1200 2850 50  0000 C CNN
+	1    1200 2850
+	-1   0    0    1   
+$EndComp
+Text Label 1200 2550 0    60   ~ 0
+SENS_SUPPLY
+$Comp
+L power:GND #PWR?
+U 1 1 5E000CFB
+P 1150 3200
+AR Path="/5E000CFB" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000CFB" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000CFB" Ref="#PWR08"  Part="1" 
+F 0 "#PWR08" H 1150 2950 50  0001 C CNN
+F 1 "GND" H 1150 3050 50  0000 C CNN
+F 2 "" H 1150 3200 50  0000 C CNN
+F 3 "" H 1150 3200 50  0000 C CNN
+	1    1150 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000D01
+P 10200 6850
+AR Path="/5E000D01" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D01" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D01" Ref="#PWR035"  Part="1" 
+F 0 "#PWR035" H 10200 6700 50  0001 C CNN
+F 1 "+3.3V" H 10200 6990 50  0000 C CNN
+F 2 "" H 10200 6850 50  0000 C CNN
+F 3 "" H 10200 6850 50  0000 C CNN
+	1    10200 6850
+	1    0    0    -1  
+$EndComp
+Text Notes 6600 3550 0    60   ~ 0
+reference for -50 degrees: 0.189V
+Text Notes 6700 3850 0    60   ~ 0
+PT1000 @ -50 Degrees: 803 Ohm\nPT1000 @ 200 Degrees: 1758.4 Ohm
+Text Notes 3000 3800 0    60   ~ 0
+0.374V @ 200 Degrees
+Text Notes 5750 1400 0    60   ~ 0
+fc = 1/(2*pi*R*C) = 1.6kHz
+$Comp
+L SolarHeatingControl-rescue:CONN_01X03 P?
+U 1 1 5E000D0B
+P 1000 1250
+AR Path="/5E000D0B" Ref="P?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D0B" Ref="P?"  Part="1" 
+AR Path="/5E04B915/5E000D0B" Ref="P2"  Part="1" 
+F 0 "P2" H 1000 1450 50  0000 C CNN
+F 1 "CONN_01X03" V 1100 1250 50  0000 C CNN
+F 2 "" H 1000 1250 50  0000 C CNN
+F 3 "" H 1000 1250 50  0000 C CNN
+	1    1000 1250
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000D11
+P 2150 1250
+AR Path="/5E000D11" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D11" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000D11" Ref="C3"  Part="1" 
+F 0 "C3" H 2175 1350 50  0000 L CNN
+F 1 "100n" H 2175 1150 50  0000 L CNN
+F 2 "" H 2188 1100 50  0000 C CNN
+F 3 "" H 2150 1250 50  0000 C CNN
+	1    2150 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:CP C?
+U 1 1 5E000D17
+P 1700 1250
+AR Path="/5E000D17" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D17" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000D17" Ref="C1"  Part="1" 
+F 0 "C1" H 1725 1350 50  0000 L CNN
+F 1 "CP" H 1725 1150 50  0000 L CNN
+F 2 "" H 1738 1100 50  0000 C CNN
+F 3 "" H 1700 1250 50  0000 C CNN
+	1    1700 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000D1D
+P 1950 1400
+AR Path="/5E000D1D" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D1D" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D1D" Ref="#PWR012"  Part="1" 
+F 0 "#PWR012" H 1950 1150 50  0001 C CNN
+F 1 "GND" H 1950 1250 50  0000 C CNN
+F 2 "" H 1950 1400 50  0000 C CNN
+F 3 "" H 1950 1400 50  0000 C CNN
+	1    1950 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5E000D23
+P 1900 1100
+AR Path="/5E000D23" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D23" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D23" Ref="#PWR010"  Part="1" 
+F 0 "#PWR010" H 1900 950 50  0001 C CNN
+F 1 "+5V" H 1900 1240 50  0000 C CNN
+F 2 "" H 1900 1100 50  0000 C CNN
+F 3 "" H 1900 1100 50  0000 C CNN
+	1    1900 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000D29
+P 5500 2850
+AR Path="/5E000D29" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D29" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000D29" Ref="C7"  Part="1" 
+F 0 "C7" H 5525 2950 50  0000 L CNN
+F 1 "100n" H 5525 2750 50  0000 L CNN
+F 2 "" H 5538 2700 50  0000 C CNN
+F 3 "" H 5500 2850 50  0000 C CNN
+	1    5500 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000D2F
+P 4850 1050
+AR Path="/5E000D2F" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D2F" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000D2F" Ref="C6"  Part="1" 
+F 0 "C6" H 4875 1150 50  0000 L CNN
+F 1 "100n" H 4875 950 50  0000 L CNN
+F 2 "" H 4888 900 50  0000 C CNN
+F 3 "" H 4850 1050 50  0000 C CNN
+	1    4850 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000D35
+P 4850 1200
+AR Path="/5E000D35" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D35" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D35" Ref="#PWR021"  Part="1" 
+F 0 "#PWR021" H 4850 950 50  0001 C CNN
+F 1 "GND" H 4850 1050 50  0000 C CNN
+F 2 "" H 4850 1200 50  0000 C CNN
+F 3 "" H 4850 1200 50  0000 C CNN
+	1    4850 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000D3B
+P 5500 3000
+AR Path="/5E000D3B" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D3B" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D3B" Ref="#PWR023"  Part="1" 
+F 0 "#PWR023" H 5500 2750 50  0001 C CNN
+F 1 "GND" H 5500 2850 50  0000 C CNN
+F 2 "" H 5500 3000 50  0000 C CNN
+F 3 "" H 5500 3000 50  0000 C CNN
+	1    5500 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000D41
+P 2500 3650
+AR Path="/5E000D41" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D41" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000D41" Ref="C5"  Part="1" 
+F 0 "C5" H 2525 3750 50  0000 L CNN
+F 1 "100n" H 2525 3550 50  0000 L CNN
+F 2 "" H 2538 3500 50  0000 C CNN
+F 3 "" H 2500 3650 50  0000 C CNN
+	1    2500 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000D47
+P 2500 3800
+AR Path="/5E000D47" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000D47" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000D47" Ref="#PWR015"  Part="1" 
+F 0 "#PWR015" H 2500 3550 50  0001 C CNN
+F 1 "GND" H 2500 3650 50  0000 C CNN
+F 2 "" H 2500 3800 50  0000 C CNN
+F 3 "" H 2500 3800 50  0000 C CNN
+	1    2500 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 1000 8100 1650
+Connection ~ 8100 1000
+Wire Wire Line
+	8800 1350 8800 1450
+Wire Wire Line
+	8800 1850 8800 1750
+Wire Wire Line
+	8150 1350 8300 1350
+Wire Wire Line
+	8150 1350 8150 1750
+Wire Wire Line
+	8150 1750 8100 1750
+Wire Wire Line
+	8300 1450 8300 1350
+Connection ~ 8300 1350
+Connection ~ 8300 1850
+Wire Wire Line
+	6100 1650 6150 1650
+Wire Wire Line
+	5300 1650 5650 1650
+Wire Wire Line
+	3850 1650 3650 1650
+Wire Wire Line
+	3650 1650 3650 1550
+Wire Wire Line
+	3000 1550 3650 1550
+Wire Wire Line
+	3850 1750 3450 1750
+Connection ~ 3650 1550
+Wire Wire Line
+	5300 1850 5350 1850
+Wire Wire Line
+	5350 1850 5350 2150
+Wire Wire Line
+	5300 1750 5450 1750
+Wire Wire Line
+	5450 1750 5450 2150
+Wire Wire Line
+	5450 2150 5650 2150
+Wire Wire Line
+	5650 2050 5650 2150
+Connection ~ 5650 2150
+Wire Wire Line
+	5650 1750 5650 1650
+Connection ~ 5650 1650
+Wire Wire Line
+	4450 3300 4150 3300
+Wire Wire Line
+	4150 2600 4150 3300
+Wire Wire Line
+	4150 3400 4450 3400
+Connection ~ 4150 3300
+Wire Wire Line
+	5900 3400 6150 3400
+Wire Wire Line
+	6150 2600 6150 3400
+Wire Wire Line
+	6150 3500 5900 3500
+Connection ~ 6150 3400
+Wire Wire Line
+	6550 3150 6550 3000
+Wire Wire Line
+	6550 3000 7150 3000
+Wire Wire Line
+	6550 3450 6550 3600
+Wire Wire Line
+	5900 3600 6550 3600
+Connection ~ 6550 3600
+Wire Wire Line
+	2500 2700 2000 2700
+Wire Wire Line
+	2500 2800 2000 2800
+Wire Wire Line
+	2500 2900 2000 2900
+Wire Wire Line
+	5000 2150 5350 2150
+Connection ~ 5350 2150
+Wire Wire Line
+	3850 2150 4700 2150
+Wire Wire Line
+	3850 1850 3850 2150
+Connection ~ 3850 2150
+Wire Wire Line
+	6150 1750 6150 1650
+Connection ~ 6150 1650
+Wire Wire Line
+	6450 1750 6450 1650
+Connection ~ 6450 1650
+Wire Wire Line
+	6150 2050 6300 2050
+Wire Wire Line
+	6300 2050 6300 2100
+Connection ~ 6300 2050
+Wire Wire Line
+	1950 8650 1950 8750
+Wire Wire Line
+	1950 8750 2050 8750
+Wire Wire Line
+	1950 9550 2050 9550
+Connection ~ 1950 8750
+Wire Wire Line
+	1850 9150 1850 9950
+Wire Wire Line
+	1850 10650 2050 10650
+Wire Wire Line
+	1850 9950 2050 9950
+Connection ~ 1850 10650
+Wire Wire Line
+	1850 9150 2050 9150
+Connection ~ 1850 9950
+Wire Wire Line
+	1850 10750 2750 10750
+Wire Wire Line
+	2750 10750 2750 10350
+Wire Wire Line
+	2750 10350 2550 10350
+Wire Wire Line
+	2750 10150 2550 10150
+Connection ~ 2750 10350
+Wire Wire Line
+	2750 9650 2550 9650
+Connection ~ 2750 10150
+Wire Wire Line
+	2750 9350 2550 9350
+Connection ~ 2750 9650
+Wire Wire Line
+	2750 8950 2550 8950
+Connection ~ 2750 9350
+Wire Wire Line
+	2550 8600 2550 8750
+Connection ~ 2550 8750
+Wire Wire Line
+	2050 8850 1100 8850
+Wire Wire Line
+	1100 8950 2050 8950
+Wire Wire Line
+	2050 9050 1100 9050
+Wire Wire Line
+	2050 9250 1100 9250
+Wire Wire Line
+	2050 9350 1100 9350
+Wire Wire Line
+	2050 9450 1100 9450
+Wire Wire Line
+	2550 9050 3950 9050
+Wire Wire Line
+	2550 9150 3950 9150
+Wire Wire Line
+	2550 9250 3950 9250
+Wire Wire Line
+	2550 9450 3950 9450
+Wire Wire Line
+	2550 9550 3950 9550
+Wire Wire Line
+	2050 9650 1100 9650
+Wire Wire Line
+	2050 9750 1100 9750
+Wire Wire Line
+	2050 9850 1100 9850
+Wire Wire Line
+	2050 10050 1100 10050
+Wire Wire Line
+	2050 10150 1100 10150
+Wire Wire Line
+	2050 10250 1100 10250
+Wire Wire Line
+	2050 10350 1100 10350
+Wire Wire Line
+	2050 10450 1100 10450
+Wire Wire Line
+	2050 10550 1100 10550
+Wire Wire Line
+	2550 10650 3950 10650
+Wire Wire Line
+	2550 10550 3950 10550
+Wire Wire Line
+	2550 10450 3950 10450
+Wire Wire Line
+	2550 10250 3950 10250
+Wire Wire Line
+	2550 10050 3950 10050
+Wire Wire Line
+	2550 9950 3950 9950
+Wire Wire Line
+	2550 9850 3950 9850
+Wire Wire Line
+	2550 9750 3950 9750
+Wire Wire Line
+	11500 8450 11500 8550
+Connection ~ 11500 8550
+Connection ~ 11500 8650
+Wire Wire Line
+	10400 8450 9900 8450
+Wire Wire Line
+	10400 8550 9900 8550
+Wire Wire Line
+	9650 8150 10400 8150
+Wire Wire Line
+	9650 8450 9800 8450
+Wire Wire Line
+	9800 8450 9800 8250
+Wire Wire Line
+	9800 8250 10400 8250
+Wire Wire Line
+	10400 7550 9700 7550
+Wire Wire Line
+	10400 7450 9700 7450
+Wire Wire Line
+	10400 7350 9700 7350
+Wire Wire Line
+	3400 2600 3400 2700
+Connection ~ 3400 2700
+Wire Wire Line
+	3400 2900 3850 2900
+Wire Wire Line
+	1150 3100 1200 3100
+Wire Wire Line
+	1200 2700 1200 2550
+Wire Wire Line
+	1200 2550 1800 2550
+Wire Wire Line
+	1200 3000 1200 3100
+Connection ~ 1200 3100
+Wire Wire Line
+	1150 3200 1200 3200
+Wire Wire Line
+	10400 7250 10350 7250
+Wire Wire Line
+	1200 1150 1400 1150
+Wire Wire Line
+	1400 1150 1400 1100
+Wire Wire Line
+	1400 1100 1700 1100
+Connection ~ 1700 1100
+Wire Wire Line
+	1400 1400 1700 1400
+Wire Wire Line
+	1200 1250 1400 1250
+Wire Wire Line
+	1400 1250 1400 1400
+Connection ~ 1700 1400
+Wire Wire Line
+	5300 1150 5300 1250
+Wire Wire Line
+	6150 2600 5650 2600
+Wire Wire Line
+	5650 2600 5650 2500
+Wire Wire Line
+	5350 2500 5350 2600
+Wire Wire Line
+	5350 2600 4150 2600
+Wire Wire Line
+	5900 2850 5900 2950
+Wire Wire Line
+	5900 2950 5750 2950
+Wire Wire Line
+	5750 2950 5750 2700
+Wire Wire Line
+	5750 2700 5500 2700
+Connection ~ 5900 2950
+Wire Wire Line
+	5300 1250 5100 1250
+Wire Wire Line
+	5100 1250 5100 900 
+Wire Wire Line
+	5100 900  4850 900 
+Connection ~ 5300 1250
+Wire Wire Line
+	3400 3200 3850 3200
+Wire Wire Line
+	3850 3200 3850 3500
+Wire Wire Line
+	2500 3500 2500 3400
+Wire Wire Line
+	8800 1000 8800 1050
+Wire Wire Line
+	7750 1000 8100 1000
+$Comp
+L SolarHeatingControl-rescue:CONN_01X03 P?
+U 1 1 5E000DF4
+P 10150 10200
+AR Path="/5E000DF4" Ref="P?"  Part="1" 
+AR Path="/5DFCE2AC/5E000DF4" Ref="P?"  Part="1" 
+AR Path="/5E04B915/5E000DF4" Ref="P4"  Part="1" 
+F 0 "P4" H 10150 10400 50  0000 C CNN
+F 1 "CONN_01X03" V 10250 10200 50  0000 C CNN
+F 2 "" H 10150 10200 50  0000 C CNN
+F 3 "" H 10150 10200 50  0000 C CNN
+	1    10150 10200
+	-1   0    0    1   
+$EndComp
+Text Notes 9850 9850 0    60   ~ 0
+One-Wire Bus
+Text Notes 850  1650 0    60   ~ 0
+Power
+$Comp
+L power:GND #PWR?
+U 1 1 5E000DFC
+P 10950 10750
+AR Path="/5E000DFC" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000DFC" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000DFC" Ref="#PWR039"  Part="1" 
+F 0 "#PWR039" H 10950 10500 50  0001 C CNN
+F 1 "GND" H 10950 10600 50  0000 C CNN
+F 2 "" H 10950 10750 50  0000 C CNN
+F 3 "" H 10950 10750 50  0000 C CNN
+	1    10950 10750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E000E02
+P 10950 9850
+AR Path="/5E000E02" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E02" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000E02" Ref="#PWR038"  Part="1" 
+F 0 "#PWR038" H 10950 9700 50  0001 C CNN
+F 1 "+3.3V" H 10950 9990 50  0000 C CNN
+F 2 "" H 10950 9850 50  0000 C CNN
+F 3 "" H 10950 9850 50  0000 C CNN
+	1    10950 9850
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E08
+P 10750 10200
+AR Path="/5E000E08" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E08" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E08" Ref="R18"  Part="1" 
+F 0 "R18" V 10830 10200 50  0000 C CNN
+F 1 "4K7" V 10750 10200 50  0000 C CNN
+F 2 "" V 10680 10200 50  0000 C CNN
+F 3 "" H 10750 10200 50  0000 C CNN
+	1    10750 10200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10500 9900 10750 9900
+Wire Wire Line
+	10750 9900 10750 10050
+Wire Wire Line
+	10950 9850 10950 9900
+Wire Wire Line
+	10350 10100 10500 10100
+Wire Wire Line
+	10500 10100 10500 9900
+Connection ~ 10750 9900
+Wire Wire Line
+	10350 10200 10550 10200
+Wire Wire Line
+	10550 10200 10550 10350
+Wire Wire Line
+	10350 10300 10350 10750
+Wire Wire Line
+	10350 10750 10950 10750
+Text Label 2800 9450 0    60   ~ 0
+FLOW_PULSE
+Text Label 10600 10600 0    60   ~ 0
+ONE_WIRE_DATA
+Wire Wire Line
+	10550 10350 10750 10350
+Wire Wire Line
+	10550 10600 11300 10600
+Connection ~ 10550 10350
+Wire Wire Line
+	8100 1000 8800 1000
+Wire Wire Line
+	8300 1350 8800 1350
+Wire Wire Line
+	8300 1850 8800 1850
+Wire Wire Line
+	3650 1550 3850 1550
+Wire Wire Line
+	5650 2150 5650 2200
+Wire Wire Line
+	5650 1650 5800 1650
+Wire Wire Line
+	4150 3300 4150 3400
+Wire Wire Line
+	6150 3400 6150 3500
+Wire Wire Line
+	6550 3600 6550 3700
+Wire Wire Line
+	5350 2150 5350 2200
+Wire Wire Line
+	3850 2150 3850 2250
+Wire Wire Line
+	6150 1650 6450 1650
+Wire Wire Line
+	6450 1650 6700 1650
+Wire Wire Line
+	6300 2050 6450 2050
+Wire Wire Line
+	1950 8750 1950 9550
+Wire Wire Line
+	1850 10650 1850 10750
+Wire Wire Line
+	1850 9950 1850 10650
+Wire Wire Line
+	2750 10350 2750 10150
+Wire Wire Line
+	2750 10150 2750 9650
+Wire Wire Line
+	2750 9650 2750 9350
+Wire Wire Line
+	2750 9350 2750 8950
+Wire Wire Line
+	2550 8750 2550 8850
+Wire Wire Line
+	11500 8550 11500 8650
+Wire Wire Line
+	3400 2700 3400 2800
+Wire Wire Line
+	1200 3100 2500 3100
+Wire Wire Line
+	1700 1100 1900 1100
+Wire Wire Line
+	1700 1400 1950 1400
+Wire Wire Line
+	5900 2950 5900 3300
+Wire Wire Line
+	5300 1250 5300 1550
+Wire Wire Line
+	10750 9900 10950 9900
+Wire Wire Line
+	10550 10350 10550 10600
+Connection ~ 9650 8150
+Wire Wire Line
+	3850 3500 4450 3500
+Text Label 2800 10450 0    60   ~ 0
+PWM1
+Text Label 2800 10550 0    60   ~ 0
+PWM2
+Text Label 2800 10650 0    60   ~ 0
+PWM3
+Text Label 1200 10550 0    60   ~ 0
+PWM4
+Text Label 1200 9050 0    60   ~ 0
+RESET
+$Comp
+L SolarHeatingControl-rescue:CP C?
+U 1 1 5E000E49
+P 1700 1550
+AR Path="/5E000E49" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E49" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000E49" Ref="C2"  Part="1" 
+F 0 "C2" H 1725 1650 50  0000 L CNN
+F 1 "CP" H 1725 1450 50  0000 L CNN
+F 2 "" H 1738 1400 50  0000 C CNN
+F 3 "" H 1700 1550 50  0000 C CNN
+	1    1700 1550
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000E4F
+P 2150 1550
+AR Path="/5E000E4F" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E4F" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000E4F" Ref="C4"  Part="1" 
+F 0 "C4" H 2175 1650 50  0000 L CNN
+F 1 "100n" H 2175 1450 50  0000 L CNN
+F 2 "" H 2188 1400 50  0000 C CNN
+F 3 "" H 2150 1550 50  0000 C CNN
+	1    2150 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 1350 1200 1700
+Wire Wire Line
+	1200 1700 1700 1700
+Wire Wire Line
+	1700 1700 1900 1700
+Connection ~ 1700 1700
+Connection ~ 1900 1100
+Wire Wire Line
+	1900 1100 2150 1100
+$Comp
+L power:+12V #PWR?
+U 1 1 5E000E5B
+P 1900 1700
+AR Path="/5E000E5B" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E5B" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000E5B" Ref="#PWR011"  Part="1" 
+F 0 "#PWR011" H 1900 1550 50  0001 C CNN
+F 1 "+12V" H 1915 1873 50  0000 C CNN
+F 2 "" H 1900 1700 50  0001 C CNN
+F 3 "" H 1900 1700 50  0001 C CNN
+	1    1900 1700
+	-1   0    0    1   
+$EndComp
+Connection ~ 1900 1700
+Wire Wire Line
+	1900 1700 2150 1700
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E63
+P 11950 8700
+AR Path="/5E000E63" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E63" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E63" Ref="R19"  Part="1" 
+F 0 "R19" V 12030 8700 50  0000 C CNN
+F 1 "10K" V 11950 8700 50  0000 C CNN
+F 2 "" V 11880 8700 50  0000 C CNN
+F 3 "" H 11950 8700 50  0000 C CNN
+	1    11950 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E69
+P 12050 8400
+AR Path="/5E000E69" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E69" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E69" Ref="R20"  Part="1" 
+F 0 "R20" V 12130 8400 50  0000 C CNN
+F 1 "10K" V 12050 8400 50  0000 C CNN
+F 2 "" V 11980 8400 50  0000 C CNN
+F 3 "" H 12050 8400 50  0000 C CNN
+	1    12050 8400
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E6F
+P 12150 8700
+AR Path="/5E000E6F" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E6F" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E6F" Ref="R21"  Part="1" 
+F 0 "R21" V 12230 8700 50  0000 C CNN
+F 1 "10K" V 12150 8700 50  0000 C CNN
+F 2 "" V 12080 8700 50  0000 C CNN
+F 3 "" H 12150 8700 50  0000 C CNN
+	1    12150 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E75
+P 12250 8400
+AR Path="/5E000E75" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E75" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E75" Ref="R22"  Part="1" 
+F 0 "R22" V 12330 8400 50  0000 C CNN
+F 1 "10K" V 12250 8400 50  0000 C CNN
+F 2 "" V 12180 8400 50  0000 C CNN
+F 3 "" H 12250 8400 50  0000 C CNN
+	1    12250 8400
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E7B
+P 12350 8700
+AR Path="/5E000E7B" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E7B" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E7B" Ref="R23"  Part="1" 
+F 0 "R23" V 12430 8700 50  0000 C CNN
+F 1 "10K" V 12350 8700 50  0000 C CNN
+F 2 "" V 12280 8700 50  0000 C CNN
+F 3 "" H 12350 8700 50  0000 C CNN
+	1    12350 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E81
+P 12450 8400
+AR Path="/5E000E81" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E81" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E81" Ref="R24"  Part="1" 
+F 0 "R24" V 12530 8400 50  0000 C CNN
+F 1 "10K" V 12450 8400 50  0000 C CNN
+F 2 "" V 12380 8400 50  0000 C CNN
+F 3 "" H 12450 8400 50  0000 C CNN
+	1    12450 8400
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E87
+P 12550 8700
+AR Path="/5E000E87" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E87" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E87" Ref="R25"  Part="1" 
+F 0 "R25" V 12630 8700 50  0000 C CNN
+F 1 "10K" V 12550 8700 50  0000 C CNN
+F 2 "" V 12480 8700 50  0000 C CNN
+F 3 "" H 12550 8700 50  0000 C CNN
+	1    12550 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000E8D
+P 12650 8400
+AR Path="/5E000E8D" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000E8D" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000E8D" Ref="R26"  Part="1" 
+F 0 "R26" V 12730 8400 50  0000 C CNN
+F 1 "10K" V 12650 8400 50  0000 C CNN
+F 2 "" V 12580 8400 50  0000 C CNN
+F 3 "" H 12650 8400 50  0000 C CNN
+	1    12650 8400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11500 8650 11500 8850
+Wire Wire Line
+	12550 8850 12450 8850
+Wire Wire Line
+	12350 8850 12250 8850
+Connection ~ 12350 8850
+Wire Wire Line
+	12150 8850 12050 8850
+Connection ~ 12150 8850
+Wire Wire Line
+	11950 8850 11500 8850
+Connection ~ 11950 8850
+Connection ~ 11500 8850
+Wire Wire Line
+	11500 8850 11500 8900
+Wire Wire Line
+	12550 8850 12650 8850
+Wire Wire Line
+	12650 8850 12650 8550
+Connection ~ 12550 8850
+Wire Wire Line
+	12450 8550 12450 8850
+Connection ~ 12450 8850
+Wire Wire Line
+	12450 8850 12350 8850
+Wire Wire Line
+	12250 8550 12250 8850
+Connection ~ 12250 8850
+Wire Wire Line
+	12250 8850 12150 8850
+Wire Wire Line
+	12050 8550 12050 8850
+Connection ~ 12050 8850
+Wire Wire Line
+	12050 8850 11950 8850
+Wire Wire Line
+	11950 8550 11950 8050
+Wire Wire Line
+	11950 8050 11500 8050
+$Comp
+L Transistor_Array:ULN2003A U?
+U 1 1 5E000EAB
+P 13750 7650
+AR Path="/5E000EAB" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000EAB" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000EAB" Ref="U8"  Part="1" 
+F 0 "U8" H 13750 8317 50  0000 C CNN
+F 1 "ULN2003A" H 13750 8226 50  0000 C CNN
+F 2 "" H 13800 7100 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 13850 7450 50  0001 C CNN
+	1    13750 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_Array:ULN2003A U?
+U 1 1 5E000EB1
+P 14100 5900
+AR Path="/5E000EB1" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000EB1" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000EB1" Ref="U9"  Part="1" 
+F 0 "U9" H 14100 6567 50  0000 C CNN
+F 1 "ULN2003A" H 14100 6476 50  0000 C CNN
+F 2 "" H 14150 5350 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 14200 5700 50  0001 C CNN
+	1    14100 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12050 7950 13350 7950
+Wire Wire Line
+	11500 7950 12050 7950
+Wire Wire Line
+	11500 7850 12150 7850
+Wire Wire Line
+	11500 7750 12250 7750
+Wire Wire Line
+	11500 7650 12350 7650
+Wire Wire Line
+	11500 7550 12450 7550
+Wire Wire Line
+	11500 7450 12550 7450
+Wire Wire Line
+	11500 7350 12650 7350
+Wire Wire Line
+	12650 7350 12650 8250
+Wire Wire Line
+	12050 8250 12050 7950
+Wire Wire Line
+	12150 7850 13350 7850
+Wire Wire Line
+	12150 8550 12150 7850
+Wire Wire Line
+	12250 7750 13350 7750
+Wire Wire Line
+	12250 8250 12250 7750
+Wire Wire Line
+	12350 7650 13350 7650
+Wire Wire Line
+	12350 8550 12350 7650
+Wire Wire Line
+	12450 7550 13350 7550
+Wire Wire Line
+	12450 8250 12450 7550
+Wire Wire Line
+	12550 7450 13350 7450
+Wire Wire Line
+	12550 8550 12550 7450
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000ECC
+P 9200 8200
+AR Path="/5E000ECC" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000ECC" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000ECC" Ref="R14"  Part="1" 
+F 0 "R14" V 9280 8200 50  0000 C CNN
+F 1 "10K" V 9200 8200 50  0000 C CNN
+F 2 "" V 9130 8200 50  0000 C CNN
+F 3 "" H 9200 8200 50  0000 C CNN
+	1    9200 8200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9700 7650 10200 7650
+Wire Wire Line
+	10200 7150 10200 7650
+Connection ~ 10200 7650
+Wire Wire Line
+	10200 7650 10400 7650
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000ED6
+P 9050 8400
+AR Path="/5E000ED6" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000ED6" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000ED6" Ref="R13"  Part="1" 
+F 0 "R13" V 9130 8400 50  0000 C CNN
+F 1 "10K" V 9050 8400 50  0000 C CNN
+F 2 "" V 8980 8400 50  0000 C CNN
+F 3 "" H 9050 8400 50  0000 C CNN
+	1    9050 8400
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000EDC
+P 8900 8200
+AR Path="/5E000EDC" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000EDC" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000EDC" Ref="R12"  Part="1" 
+F 0 "R12" V 8980 8200 50  0000 C CNN
+F 1 "10K" V 8900 8200 50  0000 C CNN
+F 2 "" V 8830 8200 50  0000 C CNN
+F 3 "" H 8900 8200 50  0000 C CNN
+	1    8900 8200
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E000EE2
+P 8750 8400
+AR Path="/5E000EE2" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E000EE2" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E000EE2" Ref="R10"  Part="1" 
+F 0 "R10" V 8830 8400 50  0000 C CNN
+F 1 "10K" V 8750 8400 50  0000 C CNN
+F 2 "" V 8680 8400 50  0000 C CNN
+F 3 "" H 8750 8400 50  0000 C CNN
+	1    8750 8400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8750 8550 8900 8550
+Wire Wire Line
+	9050 8550 9200 8550
+Connection ~ 9050 8550
+Wire Wire Line
+	9650 8550 9650 8450
+Connection ~ 9650 8550
+Connection ~ 9650 8450
+Wire Wire Line
+	9200 8350 9200 8550
+Connection ~ 9200 8550
+Wire Wire Line
+	9200 8550 9650 8550
+Wire Wire Line
+	8900 8350 8900 8550
+Connection ~ 8900 8550
+Wire Wire Line
+	8900 8550 9050 8550
+Wire Wire Line
+	9200 8050 10400 8050
+Wire Wire Line
+	8750 7750 8750 8250
+Wire Wire Line
+	8750 7750 10400 7750
+Wire Wire Line
+	8900 7850 8900 8050
+Wire Wire Line
+	8900 7850 10400 7850
+Wire Wire Line
+	9050 7950 9050 8250
+Wire Wire Line
+	9050 7950 10400 7950
+Text Label 9700 7750 0    60   ~ 0
+B4
+Text Label 9700 7850 0    60   ~ 0
+B5
+Text Label 9700 7950 0    60   ~ 0
+B6
+Text Label 9700 8050 0    60   ~ 0
+B7
+Wire Wire Line
+	13700 5900 13250 5900
+Wire Wire Line
+	13700 6000 13250 6000
+Wire Wire Line
+	13700 6100 13250 6100
+Wire Wire Line
+	13700 6200 13250 6200
+$Comp
+L Connector:Conn_01x08_Male J?
+U 1 1 5E000F05
+P 15200 6000
+AR Path="/5E000F05" Ref="J?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F05" Ref="J?"  Part="1" 
+AR Path="/5E04B915/5E000F05" Ref="J1"  Part="1" 
+F 0 "J1" H 15172 5882 50  0000 R CNN
+F 1 "Conn_01x08_Male" H 15172 5973 50  0000 R CNN
+F 2 "" H 15200 6000 50  0001 C CNN
+F 3 "~" H 15200 6000 50  0001 C CNN
+	1    15200 6000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	14800 7350 15000 7350
+Wire Wire Line
+	14500 6200 15000 6200
+Wire Wire Line
+	14500 6100 15000 6100
+Wire Wire Line
+	14500 6000 15000 6000
+Wire Wire Line
+	14500 5900 15000 5900
+$Comp
+L power:GND #PWR?
+U 1 1 5E000F11
+P 14100 6500
+AR Path="/5E000F11" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F11" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F11" Ref="#PWR045"  Part="1" 
+F 0 "#PWR045" H 14100 6250 50  0001 C CNN
+F 1 "GND" H 14100 6350 50  0000 C CNN
+F 2 "" H 14100 6500 50  0000 C CNN
+F 3 "" H 14100 6500 50  0000 C CNN
+	1    14100 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000F17
+P 14800 5350
+AR Path="/5E000F17" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F17" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F17" Ref="#PWR049"  Part="1" 
+F 0 "#PWR049" H 14800 5100 50  0001 C CNN
+F 1 "GND" H 14800 5200 50  0000 C CNN
+F 2 "" H 14800 5350 50  0000 C CNN
+F 3 "" H 14800 5350 50  0000 C CNN
+	1    14800 5350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000F1D
+P 14450 7100
+AR Path="/5E000F1D" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F1D" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F1D" Ref="#PWR047"  Part="1" 
+F 0 "#PWR047" H 14450 6850 50  0001 C CNN
+F 1 "GND" H 14450 6950 50  0000 C CNN
+F 2 "" H 14450 7100 50  0000 C CNN
+F 3 "" H 14450 7100 50  0000 C CNN
+	1    14450 7100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000F23
+P 13750 8250
+AR Path="/5E000F23" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F23" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F23" Ref="#PWR044"  Part="1" 
+F 0 "#PWR044" H 13750 8000 50  0001 C CNN
+F 1 "GND" H 13750 8100 50  0000 C CNN
+F 2 "" H 13750 8250 50  0000 C CNN
+F 3 "" H 13750 8250 50  0000 C CNN
+	1    13750 8250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5E000F29
+P 14500 5250
+AR Path="/5E000F29" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F29" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F29" Ref="#PWR048"  Part="1" 
+F 0 "#PWR048" H 14500 5100 50  0001 C CNN
+F 1 "+12V" H 14515 5423 50  0000 C CNN
+F 2 "" H 14500 5250 50  0001 C CNN
+F 3 "" H 14500 5250 50  0001 C CNN
+	1    14500 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5E000F2F
+P 14150 7000
+AR Path="/5E000F2F" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F2F" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000F2F" Ref="#PWR046"  Part="1" 
+F 0 "#PWR046" H 14150 6850 50  0001 C CNN
+F 1 "+12V" H 14165 7173 50  0000 C CNN
+F 2 "" H 14150 7000 50  0001 C CNN
+F 3 "" H 14150 7000 50  0001 C CNN
+	1    14150 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000F35
+P 14650 5350
+AR Path="/5E000F35" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F35" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000F35" Ref="C15"  Part="1" 
+F 0 "C15" H 14675 5450 50  0000 L CNN
+F 1 "100n" H 14675 5250 50  0000 L CNN
+F 2 "" H 14688 5200 50  0000 C CNN
+F 3 "" H 14650 5350 50  0000 C CNN
+	1    14650 5350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E000F3B
+P 14300 7100
+AR Path="/5E000F3B" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F3B" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E000F3B" Ref="C14"  Part="1" 
+F 0 "C14" H 14325 7200 50  0000 L CNN
+F 1 "100n" H 14325 7000 50  0000 L CNN
+F 2 "" H 14338 6950 50  0000 C CNN
+F 3 "" H 14300 7100 50  0000 C CNN
+	1    14300 7100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	14500 5250 14500 5350
+Wire Wire Line
+	14500 5350 14500 5500
+Connection ~ 14500 5350
+Wire Wire Line
+	15000 5600 14500 5600
+Wire Wire Line
+	14500 5600 14500 5500
+Connection ~ 14500 5500
+Wire Wire Line
+	14150 7000 14150 7100
+Wire Wire Line
+	14150 7100 14150 7250
+Connection ~ 14150 7100
+$Comp
+L Connector:Conn_01x10_Male J?
+U 1 1 5E000F4A
+P 15200 7750
+AR Path="/5E000F4A" Ref="J?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F4A" Ref="J?"  Part="1" 
+AR Path="/5E04B915/5E000F4A" Ref="J2"  Part="1" 
+F 0 "J2" H 15172 7632 50  0000 R CNN
+F 1 "Conn_01x10_Male" H 15172 7723 50  0000 R CNN
+F 2 "" H 15200 7750 50  0001 C CNN
+F 3 "~" H 15200 7750 50  0001 C CNN
+	1    15200 7750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	15000 7250 14150 7250
+Connection ~ 14150 7250
+Wire Wire Line
+	14150 7450 14950 7450
+Wire Wire Line
+	15000 7550 14850 7550
+Wire Wire Line
+	14150 7650 14750 7650
+Wire Wire Line
+	14150 7750 14650 7750
+Wire Wire Line
+	15000 7950 14450 7950
+Wire Wire Line
+	14150 8050 14350 8050
+Wire Wire Line
+	15000 8150 14300 8150
+Wire Wire Line
+	14300 8150 14300 8250
+Wire Wire Line
+	14300 8250 13750 8250
+Connection ~ 13750 8250
+Wire Wire Line
+	15000 6300 15000 6500
+Wire Wire Line
+	15000 6500 14100 6500
+Connection ~ 14100 6500
+Wire Wire Line
+	14800 6300 14500 6300
+Text Label 13350 6200 0    60   ~ 0
+B4
+Text Label 13350 6100 0    60   ~ 0
+B5
+Text Label 13350 6000 0    60   ~ 0
+B6
+Text Label 13350 5900 0    60   ~ 0
+B7
+Text Label 1200 10150 0    60   ~ 0
+PULSE1
+Text Label 1200 10250 0    60   ~ 0
+PULSE2
+Connection ~ 1850 10750
+Connection ~ 12050 7950
+Connection ~ 12150 7850
+Connection ~ 12250 7750
+Connection ~ 12350 7650
+Connection ~ 12450 7550
+Connection ~ 12550 7450
+$Comp
+L AD694BRZ:AD694BRZ U?
+U 1 1 5E000F74
+P 12600 1600
+AR Path="/5E000F74" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000F74" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000F74" Ref="U7"  Part="1" 
+F 0 "U7" H 12600 2570 50  0000 C CNN
+F 1 "AD694BRZ" H 12600 2479 50  0000 C CNN
+F 2 "SOIC127P1032X265-16N" H 12600 1600 50  0001 L BNN
+F 3 "SOIC-16" H 12600 1600 50  0001 L BNN
+F 4 "59K4527" H 12600 1600 50  0001 L BNN "Field4"
+F 5 "AD694BRZ" H 12600 1600 50  0001 L BNN "Field5"
+F 6 "Analog Devices" H 12600 1600 50  0001 L BNN "Field6"
+F 7 "-" H 12600 1600 50  0001 L BNN "Field7"
+	1    12600 1600
+	1    0    0    -1  
+$EndComp
+Connection ~ 1950 1400
+Wire Wire Line
+	1950 1400 2150 1400
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5DFFB337
+P 11200 2650
+AR Path="/5DFFB337" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5DFFB337" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5DFFB337" Ref="C13"  Part="1" 
+F 0 "C13" H 11225 2750 50  0000 L CNN
+F 1 "100n" H 11225 2550 50  0000 L CNN
+F 2 "" H 11238 2500 50  0000 C CNN
+F 3 "" H 11200 2650 50  0000 C CNN
+	1    11200 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11400 2300 11100 2300
+Wire Wire Line
+	11100 2300 11100 1600
+Wire Wire Line
+	11100 1600 11400 1600
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E02229F
+P 10000 2200
+AR Path="/5E02229F" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E02229F" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E02229F" Ref="R15"  Part="1" 
+F 0 "R15" V 10080 2200 50  0000 C CNN
+F 1 "1K" V 10000 2200 50  0000 C CNN
+F 2 "" V 9930 2200 50  0000 C CNN
+F 3 "" H 10000 2200 50  0000 C CNN
+	1    10000 2200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:R R?
+U 1 1 5E035FAD
+P 10550 2350
+AR Path="/5E035FAD" Ref="R?"  Part="1" 
+AR Path="/5DFCE2AC/5E035FAD" Ref="R?"  Part="1" 
+AR Path="/5E04B915/5E035FAD" Ref="R17"  Part="1" 
+F 0 "R17" V 10630 2350 50  0000 C CNN
+F 1 "1K" V 10550 2350 50  0000 C CNN
+F 2 "" V 10480 2350 50  0000 C CNN
+F 3 "" H 10550 2350 50  0000 C CNN
+	1    10550 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L SolarHeatingControl-rescue:C C?
+U 1 1 5E04995F
+P 10250 2350
+AR Path="/5E04995F" Ref="C?"  Part="1" 
+AR Path="/5DFCE2AC/5E04995F" Ref="C?"  Part="1" 
+AR Path="/5E04B915/5E04995F" Ref="C12"  Part="1" 
+F 0 "C12" H 10275 2450 50  0000 L CNN
+F 1 "100n" H 10275 2250 50  0000 L CNN
+F 2 "" H 10288 2200 50  0000 C CNN
+F 3 "" H 10250 2350 50  0000 C CNN
+	1    10250 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11400 2200 10550 2200
+Wire Wire Line
+	10550 2200 10250 2200
+Connection ~ 10550 2200
+Wire Wire Line
+	10250 2200 10150 2200
+Connection ~ 10250 2200
+Wire Wire Line
+	9500 2200 9850 2200
+Wire Wire Line
+	10250 2500 10250 2600
+Wire Wire Line
+	11400 2500 11200 2500
+Wire Wire Line
+	11200 2500 11100 2500
+Connection ~ 11200 2500
+$Comp
+L power:+12V #PWR?
+U 1 1 5E1123AF
+P 11100 2500
+AR Path="/5E1123AF" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E1123AF" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E1123AF" Ref="#PWR040"  Part="1" 
+F 0 "#PWR040" H 11100 2350 50  0001 C CNN
+F 1 "+12V" H 11115 2673 50  0000 C CNN
+F 2 "" H 11100 2500 50  0001 C CNN
+F 3 "" H 11100 2500 50  0001 C CNN
+	1    11100 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8100 2250 8550 2250
+Wire Wire Line
+	8100 2150 8550 2150
+Wire Wire Line
+	8100 2050 8550 2050
+Wire Wire Line
+	8100 1950 8550 1950
+Wire Wire Line
+	8100 1850 8300 1850
+Wire Wire Line
+	6700 1750 6700 1850
+Connection ~ 6700 1850
+Connection ~ 6700 1950
+Connection ~ 6700 2050
+Connection ~ 6700 2150
+Connection ~ 6700 2250
+Connection ~ 6700 2350
+Wire Wire Line
+	6700 1850 6700 1950
+Wire Wire Line
+	6700 1950 6700 2050
+Wire Wire Line
+	6700 2050 6700 2150
+Wire Wire Line
+	6700 2150 6700 2250
+Wire Wire Line
+	6700 2250 6700 2350
+Wire Wire Line
+	6700 2350 6700 2450
+Wire Wire Line
+	8300 1750 8300 1850
+$Comp
+L SolarHeatingControl-rescue:MCP3208 U?
+U 1 1 5E000BCD
+P 7400 1950
+AR Path="/5E000BCD" Ref="U?"  Part="1" 
+AR Path="/5DFCE2AC/5E000BCD" Ref="U?"  Part="1" 
+AR Path="/5E04B915/5E000BCD" Ref="U5"  Part="1" 
+F 0 "U5" H 6950 2400 50  0000 C CNN
+F 1 "MCP3208" H 7450 1400 50  0000 C CNN
+F 2 "" H 7300 1850 50  0000 C CNN
+F 3 "" H 7400 1950 50  0000 C CNN
+	1    7400 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E000C27
+P 8100 2350
+AR Path="/5E000C27" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E000C27" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E000C27" Ref="#PWR030"  Part="1" 
+F 0 "#PWR030" H 8100 2100 50  0001 C CNN
+F 1 "GND" H 8100 2200 50  0000 C CNN
+F 2 "" H 8100 2350 50  0000 C CNN
+F 3 "" H 8100 2350 50  0000 C CNN
+	1    8100 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E151FAF
+P 10400 2600
+AR Path="/5E151FAF" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E151FAF" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E151FAF" Ref="#PWR036"  Part="1" 
+F 0 "#PWR036" H 10400 2350 50  0001 C CNN
+F 1 "GND" H 10400 2450 50  0000 C CNN
+F 2 "" H 10400 2600 50  0000 C CNN
+F 3 "" H 10400 2600 50  0000 C CNN
+	1    10400 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 2600 10400 2600
+Wire Wire Line
+	10400 2600 10550 2600
+Wire Wire Line
+	10550 2600 10550 2500
+Connection ~ 10400 2600
+$Comp
+L power:GND #PWR?
+U 1 1 5E1A4155
+P 11200 2800
+AR Path="/5E1A4155" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E1A4155" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E1A4155" Ref="#PWR041"  Part="1" 
+F 0 "#PWR041" H 11200 2550 50  0001 C CNN
+F 1 "GND" H 11200 2650 50  0000 C CNN
+F 2 "" H 11200 2800 50  0000 C CNN
+F 3 "" H 11200 2800 50  0000 C CNN
+	1    11200 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E1B8FCA
+P 10900 1700
+AR Path="/5E1B8FCA" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E1B8FCA" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E1B8FCA" Ref="#PWR037"  Part="1" 
+F 0 "#PWR037" H 10900 1450 50  0001 C CNN
+F 1 "GND" H 10900 1550 50  0000 C CNN
+F 2 "" H 10900 1700 50  0000 C CNN
+F 3 "" H 10900 1700 50  0000 C CNN
+	1    10900 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11400 1000 10900 1000
+Wire Wire Line
+	10900 1000 10900 1400
+Wire Wire Line
+	10900 1700 11400 1700
+Connection ~ 10900 1700
+Wire Wire Line
+	11400 1400 10900 1400
+Connection ~ 10900 1400
+Wire Wire Line
+	10900 1400 10900 1700
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5E20E2F1
+P 15300 1200
+F 0 "J3" H 15272 1082 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 15272 1173 50  0000 R CNN
+F 2 "" H 15300 1200 50  0001 C CNN
+F 3 "~" H 15300 1200 50  0001 C CNN
+	1    15300 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E20F4B9
+P 14600 1200
+AR Path="/5E20F4B9" Ref="#PWR?"  Part="1" 
+AR Path="/5DFCE2AC/5E20F4B9" Ref="#PWR?"  Part="1" 
+AR Path="/5E04B915/5E20F4B9" Ref="#PWR050"  Part="1" 
+F 0 "#PWR050" H 14600 950 50  0001 C CNN
+F 1 "GND" H 14600 1050 50  0000 C CNN
+F 2 "" H 14600 1200 50  0000 C CNN
+F 3 "" H 14600 1200 50  0000 C CNN
+	1    14600 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13800 1100 15100 1100
+Wire Wire Line
+	14800 6300 14800 7350
+Wire Wire Line
+	12650 7350 12650 6300
+Wire Wire Line
+	12650 6300 13700 6300
+Connection ~ 12650 7350
+Text HLabel 14350 8900 3    60   Input ~ 12
+AA0
+Text HLabel 14450 8900 3    60   Input ~ 12
+AA1
+Text HLabel 14550 8900 3    60   Input ~ 12
+AA2
+Text HLabel 14650 8900 3    60   Input ~ 12
+AA3
+Text HLabel 14750 8900 3    60   Input ~ 12
+AA4
+Text HLabel 14850 8900 3    60   Input ~ 12
+AA5
+Text HLabel 14950 8900 3    60   Input ~ 12
+AA6
+Wire Wire Line
+	14950 8900 14950 7450
+Connection ~ 14950 7450
+Wire Wire Line
+	14950 7450 15000 7450
+Wire Wire Line
+	14850 8900 14850 7550
+Connection ~ 14850 7550
+Wire Wire Line
+	14850 7550 14150 7550
+Wire Wire Line
+	14750 8900 14750 7650
+Connection ~ 14750 7650
+Wire Wire Line
+	14750 7650 15000 7650
+Wire Wire Line
+	14650 8900 14650 7750
+Connection ~ 14650 7750
+Wire Wire Line
+	14650 7750 15000 7750
+Wire Wire Line
+	14550 8900 14550 7850
+Wire Wire Line
+	14150 7850 14550 7850
+Connection ~ 14550 7850
+Wire Wire Line
+	14550 7850 15000 7850
+Wire Wire Line
+	14450 8900 14450 7950
+Connection ~ 14450 7950
+Wire Wire Line
+	14450 7950 14150 7950
+Wire Wire Line
+	14350 8900 14350 8050
+Connection ~ 14350 8050
+Wire Wire Line
+	14350 8050 15000 8050
+Entry Wire Line
+	1000 10450 1100 10550
+Entry Wire Line
+	1000 10350 1100 10450
+Entry Wire Line
+	1000 10250 1100 10350
+Entry Wire Line
+	1000 10150 1100 10250
+Entry Wire Line
+	1000 10050 1100 10150
+Entry Wire Line
+	1000 9950 1100 10050
+Entry Wire Line
+	1000 9750 1100 9850
+Entry Wire Line
+	1000 9650 1100 9750
+Entry Wire Line
+	1000 9550 1100 9650
+Entry Wire Line
+	1000 9350 1100 9450
+Entry Wire Line
+	1000 9250 1100 9350
+Entry Wire Line
+	1000 9150 1100 9250
+Entry Wire Line
+	1000 8950 1100 9050
+Entry Wire Line
+	1000 8850 1100 8950
+Entry Wire Line
+	1000 8750 1100 8850
+Entry Wire Line
+	3950 10650 4050 10550
+Entry Wire Line
+	3950 10550 4050 10450
+Entry Wire Line
+	3950 10450 4050 10350
+Entry Wire Line
+	3950 10250 4050 10150
+Entry Wire Line
+	3950 10050 4050 9950
+Entry Wire Line
+	3950 9950 4050 9850
+Entry Wire Line
+	3950 9850 4050 9750
+Entry Wire Line
+	3950 9750 4050 9650
+Entry Wire Line
+	3950 9550 4050 9450
+Entry Wire Line
+	3950 9450 4050 9350
+Entry Wire Line
+	3950 9250 4050 9150
+Entry Wire Line
+	3950 9150 4050 9050
+Entry Wire Line
+	3950 9050 4050 8950
+Text HLabel 1000 8250 0    59   Input ~ 12
+RPI_GPIO
+Wire Bus Line
+	4050 8250 1000 8250
+Text HLabel 2600 1700 2    59   Input ~ 12
++12V
+Text HLabel 2600 1400 2    59   Input ~ 12
+GND
+Text HLabel 2600 1100 2    59   Input ~ 12
++5V
+Wire Wire Line
+	2150 1100 2600 1100
+Connection ~ 2150 1100
+Wire Wire Line
+	2600 1400 2150 1400
+Connection ~ 2150 1400
+Wire Wire Line
+	2600 1700 2150 1700
+Connection ~ 2150 1700
+Text HLabel 1850 3100 3    59   Input ~ 12
+CH0
+Text HLabel 1200 3200 2    59   Input ~ 12
+CH0_GND
+Connection ~ 1150 3200
+Text HLabel 1150 5400 0    59   Input ~ 12
+CH7
+Text HLabel 1150 5500 0    59   Input ~ 12
+CH7_GND
+Text HLabel 1150 3900 0    59   Input ~ 12
+CH1
+Text HLabel 1150 4000 0    59   Input ~ 12
+CH1_GND
+Text HLabel 1150 4150 0    59   Input ~ 12
+CH2
+Text HLabel 1150 4250 0    59   Input ~ 12
+CH2_GND
+Text HLabel 1150 4400 0    59   Input ~ 12
+CH3
+Text HLabel 1150 4500 0    59   Input ~ 12
+CH3_GND
+Text HLabel 1150 4650 0    59   Input ~ 12
+CH4
+Text HLabel 1150 4750 0    59   Input ~ 12
+CH4_GND
+Text HLabel 1150 4900 0    59   Input ~ 12
+CH5
+Text HLabel 1150 5000 0    59   Input ~ 12
+CH5_GND
+Text HLabel 1150 5150 0    59   Input ~ 12
+CH6
+Text HLabel 1150 5250 0    59   Input ~ 12
+CH6_GND
+Text HLabel 5750 8900 0    59   Input ~ 12
+S0+_A
+Text HLabel 5750 9050 0    59   Input ~ 12
+S0-_A
+Text HLabel 5750 9300 0    59   Input ~ 12
+S0+_B
+Text HLabel 5750 9450 0    59   Input ~ 12
+S0-_B
+Text HLabel 14600 1100 1    59   Input ~ 12
++B1
+Wire Wire Line
+	15100 1200 14600 1200
+Text HLabel 14950 1200 3    59   Input ~ 12
+-A2_B2
+Text HLabel 14850 1900 0    59   Input ~ 12
++A1
+Wire Bus Line
+	1000 8250 1000 10450
+Wire Bus Line
+	4050 8250 4050 10550
+Text Label 9550 2200 0    59   ~ 0
+PWM4
+$EndSCHEMATC
